@@ -1,27 +1,16 @@
-# NgxSimpleCrudRecipe
+# ngx-simple-crud-recipe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+An Angular 12 application with Ngrx Store, Effects and Router Store that perform CRUD operations for Food Recipes and using a Mock API Call with JSON Server.
 
-## Development server
+## Tools
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`Angular 12` `Angular CLI` `Bootstrap 5` `JSON Server` `Ngrx/store` `Ngrx/effects` `Ngrx/router-store` `Jasmine` `Karma`
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+$ npm install                       // Installs dependencies
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+$ npm run start:dev                 // Runs both Angular (http://localhost:4200) 
+                                    // and JSON Server (http://localhost:3001)
+```
