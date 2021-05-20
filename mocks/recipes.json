@@ -5,9 +5,9 @@
       "title": "Queso Brat Scramble",
       "description": "A delicious breakfast, fit for a crowd.",
       "images": {
-        "full": "/img/queso_brat_scramble.jpg",
-        "medium": "/img/queso_brat_scramble--m.jpg",
-        "small": "/img/queso_brat_scramble--s.jpg"
+        "full": "assets/images/queso-brat-scramble/queso_brat_scramble.jpg",
+        "medium": "assets/images/queso-brat-scramble/queso_brat_scramble--m.jpg",
+        "small": "assets/images/queso-brat-scramble/queso_brat_scramble--s.jpg"
       },
       "servings": 5,
       "prepTime": 10,
@@ -154,9 +154,9 @@
       "title": "Italian Meatballs",
       "description": "Quick, easy and authentic.",
       "images": {
-        "full": "/img/italian_meatballs.jpg",
-        "medium": "/img/italian_meatballs--m.jpg",
-        "small": "/img/italian_meatballs--s.jpg"
+        "full": "assets/images/italian-meatballs/italian_meatballs.jpg",
+        "medium": "assets/images/italian-meatballs/italian_meatballs--m.jpg",
+        "small": "assets/images/italian-meatballs/italian_meatballs--s.jpg"
       },
       "servings": 6,
       "prepTime": 25,
@@ -233,9 +233,9 @@
       "title": "Kielbasa Skillet",
       "description": "A polish delicacy.",
       "images": {
-        "full": "/img/kielbasa_skillet.jpg",
-        "medium": "/img/kielbasa_skillet--m.jpg",
-        "small": "/img/kielbasa_skillet--s.jpg"
+        "full": "assets/images/kielbasa-skillet/kielbasa_skillet.jpg",
+        "medium": "assets/images/kielbasa-skillet/kielbasa_skillet--m.jpg",
+        "small": "assets/images/kielbasa-skillet/kielbasa_skillet--s.jpg"
       },
       "servings": 8,
       "prepTime": 20,
@@ -322,9 +322,9 @@
       "title": "Brussel Chips",
       "description": "Tasty, crispy, spicy and healthy!",
       "images": {
-        "full": "/img/brussel_chips.jpg",
-        "medium": "/img/brussel_chips--m.jpg",
-        "small": "/img/brussel_chips--s.jpg"
+        "full": "assets/images/brussel-chips/brussel_chips.jpg",
+        "medium": "assets/images/brussel-chips/brussel_chips--m.jpg",
+        "small": "assets/images/brussel-chips/brussel_chips--s.jpg"
       },
       "servings": 4,
       "prepTime": 15,
@@ -395,9 +395,9 @@
       "title": "Pancake Mountain",
       "description": "A giant stack of pancakes to share or to horde.",
       "images": {
-        "full": "/img/pancake_mountain.jpg",
-        "medium": "/img/pancake_mountain--m.jpg",
-        "small": "/img/pancake_mountain--s.jpg"
+        "full": "assets/images/pancake-mountain/pancake_mountain.jpg",
+        "medium": "assets/images/pancake-mountain/pancake_mountain--m.jpg",
+        "small": "assets/images/pancake-mountain/pancake_mountain--s.jpg"
       },
       "servings": 8,
       "prepTime": 15,

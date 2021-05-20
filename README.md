@@ -9,8 +9,11 @@ An Angular 12 application with Ngrx Store, Effects, and Router Store that perfor
 ## Installation
 
 ```
+$ npm install -g json-server        // Install json-server globally
+
 $ npm install                       // Installs dependencies
 
-$ npm run start                     // Runs both Angular (http://localhost:4200) 
-                                    // and JSON Server (http://localhost:3001)
+$ npm start                         // Runs Angular app at http://localhost:4200
+
+$ npm run server:dev                // Runs JSON Server at http://localhost:3001
 ```
