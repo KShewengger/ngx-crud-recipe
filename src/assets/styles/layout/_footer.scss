@@ -2,7 +2,7 @@
   color: $color-brown;
 
   %highlight {
-    color: $color-secondary-dark;
+    color: darken($color-brown, 5%);
     font-weight: 500;
   }
 

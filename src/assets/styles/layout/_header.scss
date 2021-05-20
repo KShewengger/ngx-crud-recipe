@@ -11,7 +11,7 @@
   }
 
   &__title {
-    color: $color-brown;
+    color: darken($color-brown, 5%);
     font-size: 1.5rem;
     font-weight: bolder;
   }
