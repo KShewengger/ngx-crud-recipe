@@ -1,0 +1,19 @@
+.header {
+
+  &__logo {
+    background-color: red;
+    -webkit-mask: url('/assets/images/icons/logo.svg') no-repeat center;
+    mask: url('/assets/images/icons/logo.svg') no-repeat center;
+  }
+
+  &__img {
+    width: 4rem;
+  }
+
+  &__title {
+    color: $color-brown;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+
+}
