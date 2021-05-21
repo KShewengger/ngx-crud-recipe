@@ -23,8 +23,12 @@ p {
   margin-bottom: 0;
 }
 
+main {
+  height: calc(100% - 11.5rem);
+  padding: 4rem 0;
+}
+
 ::selection {
   background-color: $color-secondary;
   color: white;
 }
-
