@@ -1,4 +1,5 @@
 .header {
+  margin-top: 2rem;
 
   &__logo {
     background-color: red;
@@ -7,13 +8,14 @@
   }
 
   &__img {
-    width: 4rem;
+    width: 6rem;
   }
 
   &__title {
     color: darken($color-brown, 5%);
-    font-size: 1.5rem;
     font-weight: bolder;
+    letter-spacing: 0.125rem;
+    margin-left: -0.5rem;
   }
 
 }

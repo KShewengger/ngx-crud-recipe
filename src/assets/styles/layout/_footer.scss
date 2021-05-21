@@ -1,14 +1,19 @@
 .footer {
-  color: $color-brown;
-  font-size: 0.8rem;
+  color: $color-brown-light;
+  font-size: 0.9rem;
+  margin-top: 5rem;
 
   %highlight {
-    color: darken($color-brown, 5%);
+    color: darken($color-brown-light, 2%);
     font-weight: 500;
   }
 
   &__copyright {
     @extend %highlight;
+
+    svg {
+      fill: darken($color-brown-light, 2%);
+    }
   }
 
   a {

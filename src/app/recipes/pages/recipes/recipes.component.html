@@ -1,56 +1,19 @@
 <div class="recipes">
 
-  <div class="recipes__search col-12 col-xl-6 col-md-8">
+  <!-- SEARCH -->
+  <div class="recipes__search col-12 col-xl-6 col-md-8 mx-auto">
     <label class="input-search w-100 position-relative">
       <input type="text" placeholder="Search Recipes" class="input-search__input form-control">
     </label>
   </div>
 
-  <div class="recipes__list row row-cols-xl-4 row-cols-md-2 row-cols-1">
-    <div class="col">
-      <div class="card">
-        <img srcset="assets/images/foods/brussel-chips/brussel_chips--s.jpg 200w,
-                     assets/images/foods/brussel-chips/brussel_chips--m.jpg 570w,
-                     assets/images/foods/brussel-chips/brussel_chips.jpg 1200w"
-             src="assets/images/foods/brussel-chips/brussel_chips.jpg"
-             sizes="(max-width: 400px) 100vw, (max-width: 700px) 80vw, (max-width: 900px) 70vw, 500px"
-             alt="..."
-             class="card__image img-fluid">
-
-        <div class="card-body">
-          <div class="card-info mb-4">
-            <h5 class="card-info__title card-title">Brussel Chips</h5>
-            <p class="card-info__text card-text text-muted">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-
-          <div class="card-summary mb-2 text-muted">
-            <p>
-              <svg class="card-summary__icon icon icon-copyright">
-                <use xlink:href="assets/images/icons/symbol-defs.svg#icon-face"></use>
-              </svg>
-
-              <span class="ms-2">5 servings</span>
-            </p>
-
-            <p class="my-1">
-              <svg class="card-summary__icon icon icon-copyright">
-                <use xlink:href="assets/images/icons/symbol-defs.svg#icon-timer"></use>
-              </svg>
-
-              <span class="ms-2">10 minutes</span>
-            </p>
-
-            <p>
-              <svg class="card-summary__icon icon icon-copyright">
-                <use xlink:href="assets/images/icons/symbol-defs.svg#icon-bowl"></use>
-              </svg>
-
-              <span class="ms-2">20 minutes</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- RECIPES -->
+  <div class="recipes__list row row-cols-xl-3 row-cols-md-2 row-cols-1 g-4 g-xl-5">
+    <app-recipe-card class="col"></app-recipe-card>
+    <app-recipe-card class="col"></app-recipe-card>
+    <app-recipe-card class="col"></app-recipe-card>
+    <app-recipe-card class="col"></app-recipe-card>
+    <app-recipe-card class="col"></app-recipe-card>
   </div>
 
 </div>

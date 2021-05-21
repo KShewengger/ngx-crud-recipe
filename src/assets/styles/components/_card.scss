@@ -1,5 +1,4 @@
 .card {
-
   border: 0;
   border-radius: 1rem;
   overflow: hidden;
@@ -9,51 +8,4 @@
   p {
     font-size: 0.8rem;
   }
-
-  @include media-breakpoint-up(md) {
-    &:hover {
-      box-shadow: 0 0.125rem 0.375rem $color-secondary-light;
-      transform: scale(1.05);
-
-      .card__image {
-        transform: scale(1);
-      }
-    }
-  }
-
-}
-
-.card__image {
-  transition: all .3s;
-  transform: scale(1.1);
-}
-
-.card-info {
-
-  &__title {
-    color: $color-secondary;
-  }
-
-  &__text {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-}
-
-.card-body {
-  background: white;
-  border-radius: 1rem;
-  margin-top: -1.5rem;
-  z-index: 10;
-}
-
-.card-summary {
-
-  &__icon {
-   fill: $color-gray-dark;
-  }
-
 }
