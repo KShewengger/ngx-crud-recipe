@@ -1,38 +1,40 @@
-<!-- HEADER -->
-<header class="header">
-  <nav class="navbar">
-    <div class="container-fluid">
-      <a href="#" class="navbar-brand">
-        <img src="assets/images/icons/logo.svg" alt="Recipes" class="header__img img-fluid">
-        <span class="header__title align-middle">Recipes</span>
-      </a>
-    </div>
-  </nav>
-</header>
+<div class="wrapper">
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand">
+          <img src="assets/images/icons/logo.svg" alt="Recipes" class="header__img img-fluid">
+          <span class="header__title align-middle">Recipes</span>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-<!-- MAIN -->
-<main class="container">
-  <router-outlet></router-outlet>
-</main>
+  <!-- MAIN -->
+  <main class="container py-xl-4 py-md-4 py-0">
+    <router-outlet></router-outlet>
+  </main>
 
-<!-- FOOTER -->
-<footer class="footer position-fixed text-center bottom-0 w-100 py-3">
+  <!-- FOOTER -->
+  <footer class="footer text-center pw-100 py-3">
 
-  <!-- COPYRIGHT -->
-  <p class="footer__copyright">
-    <svg class="icon icon-copyright">
-      <use xlink:href="assets/images/icons/symbol-defs.svg#icon-copyright"></use>
-    </svg>
-    <span class="align-middle ms-1">KShewengger 2021</span>
-  </p>
-
-  <!-- ATTRIBUTION -->
-  <div class="footer__attribution">
-    <p>
-      Icons made by
-      <a href="https://www.freepik.com" title="Freepik">Freepik</a>
-      and
-      <a href="https://icomoon.io/" title="Icomoons">IcoMoons</a>
+    <!-- COPYRIGHT -->
+    <p class="footer__copyright">
+      <svg class="icon icon-copyright">
+        <use xlink:href="assets/images/icons/symbol-defs.svg#icon-copyright"></use>
+      </svg>
+      <span class="align-middle ms-1">KShewengger 2021</span>
     </p>
-  </div>
-</footer>
+
+    <!-- ATTRIBUTION -->
+    <div class="footer__attribution">
+      <p>
+        Icons made by
+        <a href="https://www.freepik.com" title="Freepik">Freepik</a>
+        and
+        <a href="https://icomoon.io/" title="Icomoons">IcoMoons</a>
+      </p>
+    </div>
+  </footer>
+</div>

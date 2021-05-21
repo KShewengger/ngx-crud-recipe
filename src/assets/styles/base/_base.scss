@@ -23,8 +23,14 @@ p {
   margin-bottom: 0;
 }
 
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
-  height: calc(100% - 11.5rem);
+  flex: 1;
   padding: 4rem 0;
 }
 
