@@ -3,17 +3,18 @@
   <!-- SEARCH -->
   <div class="recipes__search col-12 col-xl-6 col-md-8 mx-auto">
     <label class="input-search w-100 position-relative">
-      <input type="text" placeholder="Search Recipes" class="input-search__input form-control">
+      <input type="text"
+             placeholder="Search Recipes"
+             class="input-search__input form-control"
+             #search>
     </label>
   </div>
 
   <!-- RECIPES -->
   <div class="recipes__list row row-cols-xl-3 row-cols-md-2 row-cols-1 g-4 g-xl-5">
-    <app-recipe-card class="col"></app-recipe-card>
-    <app-recipe-card class="col"></app-recipe-card>
-    <app-recipe-card class="col"></app-recipe-card>
-    <app-recipe-card class="col"></app-recipe-card>
-    <app-recipe-card class="col"></app-recipe-card>
+    <app-recipe-card class="col d-flex align-items-stretch"
+                     *ngFor="let recipe of (recipes$ | async)"
+                     [recipe]="recipe"></app-recipe-card>
   </div>
 
 </div>
