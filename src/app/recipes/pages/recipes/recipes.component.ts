@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { RecipeService } from '@recipes/shared/services/recipe/recipe.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
 
 import { Recipe } from '@recipes/shared/models/recipe.model';
+import { RecipeService } from '@recipes/shared/services/recipe/recipe.service';
 
 
 @Component({
@@ -11,14 +12,47 @@ import { Recipe } from '@recipes/shared/models/recipe.model';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss']
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent implements OnInit, OnDestroy {
 
-  recipes$: Observable<Recipe[]>;
+  search$: Subject<string> = new Subject<string>();
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  recipes: Recipe[];
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipes$ = this.recipeService.getAllRecipes();
+    this.initializeData();
+    this.onSearchChange();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
+
+  initializeData(): void {
+    this.recipeService
+      .getAllRecipes()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(recipes => this.recipes = recipes);
+  }
+
+  onSearchChange(): void {
+    this.search$
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(value =>
+          this.recipeService
+            .getAllRecipes()
+            .pipe(
+              map(recipes => recipes.filter(({ title }) => title.toLowerCase().includes(value.toLowerCase())))
+            )
+        ),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(recipes => this.recipes = recipes);
   }
 
 }
