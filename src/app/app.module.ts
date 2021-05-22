@@ -12,7 +12,7 @@ import { AppComponent } from '@app/app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     CoreModule,
     AppRoutingModule
   ],

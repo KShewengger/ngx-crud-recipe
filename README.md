@@ -13,7 +13,7 @@ $ npm install -g json-server        // Install json-server globally
 
 $ npm install                       // Installs dependencies
 
-$ npm start                         // Runs Angular app at http://localhost:4200
+$ npm run dev:ssr                   // Runs Angular app at http://localhost:4200
 
 $ npm run mock:server               // Runs JSON Server at http://localhost:3001
 ```
