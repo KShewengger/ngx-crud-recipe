@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { RestService } from '@recipes/shared/services/rest.service';
 
-import { API_URL } from '@app/shared/tokens/api-url.token';
+import { API_URL } from '@core/tokens/api-url.token';
 import { Recipe } from '@recipes/shared/models/recipe.model';
 
 
@@ -19,8 +19,6 @@ export class RecipeService extends RestService {
     @Inject(API_URL) protected apiUrl: string
   ) {
     super(http, apiUrl);
-
-    console.log(apiUrl);
   }
 
   getAllRecipes(): Observable<Recipe[]> {
