@@ -1,4 +1,4 @@
-# ngx-simple-crud-recipe
+# ngx-crud-recipe
 
 An Angular 12 application with Ngrx Store, Effects, and Router Store that performs CRUD operations for Food Recipes and using Mock API Calls with JSON Server.
 
