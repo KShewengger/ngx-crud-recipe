@@ -16,3 +16,9 @@ export interface Recipe {
   ingredients: RecipeIngredient[];
   directions: RecipeDirection[];
 }
+
+export interface RecipeState {
+  entities: { [id: string]: Recipe };
+  loaded: boolean;
+  loading: boolean;
+}
