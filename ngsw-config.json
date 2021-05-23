@@ -26,5 +26,19 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "recipes",
+      "urls": [
+        "http://localhost:3001/recipes"
+      ],
+      "cacheConfig": {
+        "maxSize": 6,
+        "maxAge": "3h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
