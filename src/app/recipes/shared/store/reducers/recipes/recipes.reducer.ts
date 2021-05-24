@@ -1,6 +1,5 @@
-import * as Action from '@recipes/store/actions/recipes/recipes.action';
-
-import { Recipe, RecipeState } from '@recipes/shared/models/recipe.model';
+import * as fromActions from '@recipes/shared/store/actions';
+import { Recipe, RecipeState } from '@recipes/shared';
 
 
 export const initialState: RecipeState = {
@@ -9,17 +8,17 @@ export const initialState: RecipeState = {
   loading: false,
 };
 
-export function reducer(state: RecipeState = initialState, action: Action.RecipesAction): RecipeState {
+export function reducer(state: RecipeState = initialState, action: fromActions.RecipesAction): RecipeState {
 
   switch (action.type) {
-    case Action.LOAD_RECIPES: {
+    case fromActions.LOAD_RECIPES: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case Action.LOAD_RECIPES_SUCCESS: {
+    case fromActions.LOAD_RECIPES_SUCCESS: {
       const entities = action
         .payload
         .reduce((stateEntities: { [id: string]: Recipe }, recipe: Recipe) =>
@@ -35,7 +34,7 @@ export function reducer(state: RecipeState = initialState, action: Action.Recipe
       };
     }
 
-    case Action.LOAD_RECIPES_FAIL: {
+    case fromActions.LOAD_RECIPES_FAIL: {
       return {
         ...state,
         loading: false,

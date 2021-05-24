@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RecipesComponent } from '@recipes/pages/recipes/recipes.component';
-import { RecipeComponent } from '@recipes/pages/recipe/recipe.component';
-
-import { RecipesGuard } from '@recipes/shared/guards/recipes.guard';
+import { RecipesComponent, RecipeComponent } from '@recipes/pages';
+import { RecipesGuard } from '@recipes/shared';
 
 
 const routes: Routes = [

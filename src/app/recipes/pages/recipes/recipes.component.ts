@@ -1,14 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Observable, Subject } from 'rxjs';
-import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map, tap } from 'rxjs/operators';
-
 import { Store } from '@ngrx/store';
 
-import { Recipe } from '@recipes/shared/models/recipe.model';
-import { RecipeService } from '@recipes/shared/services/recipe/recipe.service';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
 
-import { getAllRecipes, ProductsState } from '@recipes/store';
+import { Recipe } from '@recipes/shared';
+import { getAllRecipes, ProductsState } from '@recipes/shared/store';
 
 
 @Component({

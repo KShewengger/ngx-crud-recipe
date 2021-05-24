@@ -1,7 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Meta, Title, MetaDefinition } from '@angular/platform-browser';
-import { Tag } from '@shared/models/seo.model';
+import { Meta, Title } from '@angular/platform-browser';
+
+import { Tag } from '@shared/models';
 
 
 @Injectable({

@@ -6,22 +6,16 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { RecipesRoutingModule } from '@recipes/recipes-routing.module';
 
-import { RecipesComponent } from '@recipes/pages/recipes/recipes.component';
-import { RecipeComponent } from '@recipes/pages/recipe/recipe.component';
-import { RecipeCardComponent } from '@recipes/components/recipe-card/recipe-card.component';
-
-import { RecipeCardActiveDirective } from '@recipes/shared/directives/recipe-card-active/recipe-card-active.directive';
-import { reducers, effects } from '@recipes/store';
-
-import { RecipesGuard } from '@recipes/shared/guards/recipes.guard';
+import { pages } from '@recipes/pages';
+import { components } from '@recipes/components';
+import { guards, directives, reducers, effects } from '@recipes/shared';
 
 
 @NgModule({
   declarations: [
-    RecipesComponent,
-    RecipeComponent,
-    RecipeCardComponent,
-    RecipeCardActiveDirective
+    ...pages,
+    ...components,
+    ...directives
   ],
   imports: [
     CommonModule,
@@ -29,6 +23,6 @@ import { RecipesGuard } from '@recipes/shared/guards/recipes.guard';
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)
   ],
-  providers: [ RecipesGuard ]
+  providers: [ ...guards ]
 })
 export class RecipesModule { }

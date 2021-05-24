@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.scss']
 })
-export class RecipeComponent implements OnInit {
+export class RecipeComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }

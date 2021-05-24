@@ -1,10 +1,8 @@
 import { createSelector } from '@ngrx/store';
 
 import { getRouterState } from '@core/store';
-import { getProductsState, ProductsState } from '@recipes/store/reducers';
-import * as RecipesReducer from '@recipes/store/reducers/recipes/recipes.reducer';
-
-import { Recipe } from '@recipes/shared/models/recipe.model';
+import { getProductsState, ProductsState, Recipe } from '@recipes/shared';
+import * as RecipesReducer from '@recipes/shared/store/reducers/recipes/recipes.reducer';
 
 
 export const getRecipeState = createSelector(
@@ -25,10 +23,7 @@ export const getSelectedRecipe = createSelector(
 
 export const getAllRecipes = createSelector(
   getRecipesEntities,
-  entities => {
-    console.log(entities);
-    return Object.keys(entities).map(uuid => entities[uuid])
-  });
+  entities => Object.keys(entities).map(uuid => entities[uuid]));
 
 export const getRecipesLoaded = createSelector(
   getRecipeState,

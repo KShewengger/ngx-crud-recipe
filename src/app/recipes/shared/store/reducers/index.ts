@@ -1,7 +1,8 @@
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
 import { reducer as recipesReducer } from './recipes/recipes.reducer';
-import { RecipeState } from '@recipes/shared/models/recipe.model';
+import { RecipeState } from '@recipes/shared';
+
 
 export interface ProductsState {
   recipes: RecipeState;

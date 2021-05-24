@@ -1,7 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Recipe } from '@recipes/shared/models/recipe.model';
-
+import { Recipe } from '@recipes/shared';
 
 
 export const LOAD_RECIPES = '[Products] Load Recipes';

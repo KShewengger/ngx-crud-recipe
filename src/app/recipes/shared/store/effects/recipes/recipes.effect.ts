@@ -5,8 +5,8 @@ import { map, switchMap, catchError, tap } from 'rxjs/operators';
 
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 
-import { RecipeService } from '@recipes/shared/services/recipe/recipe.service';
-import * as RecipesActions from '@recipes/store/actions/recipes/recipes.action';
+import { RecipeService } from '@recipes/shared';
+import * as fromActions from '@recipes/shared/store/actions';
 
 
 @Injectable()
@@ -18,14 +18,12 @@ export class RecipesEffects {
   ) { }
 
   loadPizzas$ = createEffect(() => this.actions$.pipe(
-    ofType(RecipesActions.LOAD_RECIPES),
-    tap(console.log),
+    ofType(fromActions.LOAD_RECIPES),
     switchMap(() => this.recipeService
       .getAllRecipes()
       .pipe(
-        map(recipes => new RecipesActions.LoadRecipesSuccess(recipes)),
-        tap(console.log),
-        catchError(error => of(new RecipesActions.LoadRecipesFail(error)))
+        map(recipes => new fromActions.LoadRecipesSuccess(recipes)),
+        catchError(error => of(new fromActions.LoadRecipesFail(error)))
       )
     )
   ));

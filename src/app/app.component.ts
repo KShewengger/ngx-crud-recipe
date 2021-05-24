@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SeoService } from '@shared/services/seo/seo.service';
-import { Tag } from '@shared/models/seo.model';
+import { Tag } from '@shared/models';
 
 
 @Component({

@@ -6,14 +6,12 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
 
-import { META_REDUCERS as metaReducers, STORE_INSTRUMENT }  from '@core/config/ngrx.config';
-import { RouterEffects } from '@core/store/effects/router/router.effects';
-import { reducers, CustomSerializer } from '@core/store';
-
-import { HttpErrorInterceptor } from '@core/interceptors/error.interceptor';
+import { API_URL } from '@core/tokens';
+import { HttpErrorInterceptor } from '@core/interceptors';
+import { META_REDUCERS as metaReducers, STORE_INSTRUMENT }  from '@core/config';
+import { RouterEffects, reducers, CustomSerializer } from '@core/store';
 
 import { environment } from '@environments/environment';
-import { API_URL } from '@core/tokens/api-url.token';
 
 
 @NgModule({

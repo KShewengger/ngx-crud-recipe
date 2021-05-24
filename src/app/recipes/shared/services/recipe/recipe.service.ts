@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-import { RestService } from '@recipes/shared/services/rest.service';
+import { Recipe } from '@recipes/shared';
+import { API_URL } from '@core/tokens';
 
-import { API_URL } from '@core/tokens/api-url.token';
-import { Recipe } from '@recipes/shared/models/recipe.model';
+import { RestService } from '@recipes/shared/services/rest/rest.service';
 
 
 @Injectable({

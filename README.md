@@ -1,6 +1,6 @@
 # ngx-crud-recipe
 
-An Angular 12 application with Ngrx Store, Effects, and Router Store with performance enhanced with Angular Universal and PWA which performs CRUD operations for Food Recipes and using Mock API Calls with JSON Server.
+An Angular 12 application with Ngrx Store, Effects, and Router Store with performance enhanced with Angular Universal and PWA which performs CRUD operations for Food Recipes served by Mock API Calls with JSON Server.
 
 ## Tools
 
