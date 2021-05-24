@@ -1,0 +1,79 @@
+.recipe {
+  background-color: white;
+  border-radius: 1rem;
+  padding-bottom: 4rem;
+
+  &__body {
+    padding: 3rem;
+  }
+
+  &__title {
+    color: var(--color-brown);
+  }
+
+  &__subject {
+    font-weight: 400;
+  }
+
+  &__image {
+    border-radius: 0.5rem;
+  }
+
+  &__steps {
+    list-style-type: decimal;
+  }
+
+  &__icon {
+    fill: var(--color-brown);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__button {
+    padding: 0.5rem;
+    width: 6rem;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+
+    &--edit {
+      color: var(--color-brown);
+    }
+
+    &:hover {
+      transform: translateY(-0.0625rem);
+      box-shadow: 0 0.0625rem 0.1875rem var(--color-gray);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+}
+
+// BOOKMARK
+.bookmark {
+  filter: drop-shadow(-0.0625rem 0.375rem 0.1875rem rgba(50, 50, 0, 0.5));
+
+  &__cover {
+    background-color: var(--color-brown-dark);
+    display: inline-block;
+    height: 24rem;
+    width: 16rem;
+    padding: 2rem 1rem;
+    clip-path: polygon(0 0, 52% 0, 100% 0, 100% 100%, 50% 87%, 0 100%);
+    position: relative;
+    top: -1rem;
+  }
+
+  &__timeframe {
+    text-align: center;
+    line-height: 1.8;
+    color: white;
+    letter-spacing: 0.1rem;
+  }
+
+  &__icon {
+    fill: white;
+  }
+}

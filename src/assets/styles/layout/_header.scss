@@ -1,19 +1,14 @@
 .header {
   margin-top: 2rem;
 
-  &__logo {
-    background-color: red;
-    -webkit-mask: url('/assets/images/icons/logo.svg') no-repeat center;
-    mask: url('/assets/images/icons/logo.svg') no-repeat center;
-  }
-
   &__img {
     width: 6rem;
+    margin-left: -2rem;
   }
 
   &__title {
     color: darken($color-brown, 5%);
-    font-weight: bolder;
+    font-weight: 500;
     letter-spacing: 0.125rem;
     margin-left: -0.5rem;
   }

@@ -1,1 +1,94 @@
-<p>recipe works!</p>
+<div class="recipe container">
+
+  <!-- RECIPE COVER -->
+  <div class="recipe__wrapper d-flex">
+
+    <!-- RECIPE BODY -->
+    <div class="recipe__body">
+
+      <!-- HEADER -->
+      <div class="recipe__header mb-5">
+        <p class="recipe__title display-2 mb-2">Spagghetti Pasta</p>
+        <p class="recipe__description text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+
+      <!-- RECIPE INGREDIENTS -->
+      <div class="recipe__ingredients mb-4">
+        <h3 class="recipe__subject mb-3">
+          <svg class="recipe__icon icon icon-local_grocery_store me-2">
+            <use xlink:href="assets/images/icons/symbol-defs.svg#icon-local_grocery_store"></use>
+          </svg>
+
+          <span class="align-middle">Ingredients</span>
+        </h3>
+
+        <ul class="text-muted">
+          <li>Test 1</li>
+          <li>Test 2</li>
+          <li>Test 3</li>
+        </ul>
+      </div>
+
+      <!-- RECIPE DIRECTIONS -->
+      <div class="recipe__directions">
+        <h3 class="recipe__subject mb-3">
+          <svg class="recipe__icon icon icon-bowl me-2">
+            <use xlink:href="assets/images/icons/symbol-defs.svg#icon-bowl"></use>
+          </svg>
+
+          <span class="align-middle">Directions</span>
+        </h3>
+
+        <ul class="recipe__steps text-muted">
+          <li>Test 1</li>
+          <li>Test 2</li>
+          <li>Test 3</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RECIPE BOOKMARK -->
+    <div class="bookmark ms-5">
+      <div class="bookmark__cover">
+        <img srcset="assets/images/foods/queso-brat-scramble/queso_brat_scramble--s.jpg 200w,
+               assets/images/foods/queso-brat-scramble/queso_brat_scramble--m.jpg 570w,
+               assets/images/foods/queso-brat-scramble/queso_brat_scramble.jpeg 1200w"
+             class="recipe__image card-img-top img-fluid mb-4"
+             [src]="'assets/images/foods/queso-brat-scramble/queso_brat_scramble.jpeg'"
+             [alt]="'sample'">
+
+        <div class="bookmark__timeframe">
+          <p>
+            <svg class="bookmark__icon icon icon-copyright">
+              <use xlink:href="assets/images/icons/symbol-defs.svg#icon-face"></use>
+            </svg>
+            <span class="ms-2">5 servings</span>
+          </p>
+
+          <p class="my-1">
+            <svg class="bookmark__icon icon icon-copyright">
+              <use xlink:href="assets/images/icons/symbol-defs.svg#icon-timer"></use>
+            </svg>
+            <span class="ms-2">10 minutes</span>
+          </p>
+
+          <p>
+            <svg class="bookmark__icon icon icon-copyright">
+              <use xlink:href="assets/images/icons/symbol-defs.svg#icon-bowl"></use>
+            </svg>
+            <span class="ms-2">20 minutes</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RECIPE BUTTONS -->
+  <div class="recipe__buttons text-center mt-5">
+    <a class="recipe__button recipe__button--edit btn btn-primary me-2">Edit</a>
+    <a class="recipe__button recipe__button--delete btn btn-secondary text-white">Delete</a>
+  </div>
+
+</div>
