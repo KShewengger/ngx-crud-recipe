@@ -12,5 +12,5 @@ export const META_REDUCERS: MetaReducer[] = isDevelopment
   : [];
 
 export const STORE_INSTRUMENT = isDevelopment
-  ? StoreDevtoolsModule.instrument()
+  ? StoreDevtoolsModule.instrument({ maxAge: 25 })
   : [];

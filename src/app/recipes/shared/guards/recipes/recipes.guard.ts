@@ -9,20 +9,22 @@ import { tap, filter, take, switchMap, catchError } from 'rxjs/operators';
 import { getRecipesLoaded, LoadRecipes, ProductsState } from '@recipes/shared';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class RecipesGuard implements CanActivate {
 
   constructor(private store: Store<ProductsState>) {}
 
   canActivate(): Observable<boolean> {
-    return this.checkStore()
+    return this.checkRecipesLoadedState()
       .pipe(
         switchMap(() => of(true)),
         catchError(() => of(false))
       );
   }
 
-  checkStore(): Observable<boolean> {
+  checkRecipesLoadedState(): Observable<boolean> {
     return this.store
       .select(getRecipesLoaded)
       .pipe(

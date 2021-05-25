@@ -1,4 +1,5 @@
-<div class="recipe container">
+<div class="recipe container"
+     *ngIf="(recipe$ | async) as recipe">
 
   <!-- RECIPE COVER -->
   <div class="recipe__wrapper d-flex mb-3">
@@ -8,8 +9,8 @@
 
       <!-- HEADER -->
       <div class="recipe__header mb-md-5 mb-4">
-        <p class="recipe__title display-3 mb-2">Spagghetti Pasta</p>
-        <p class="recipe__description text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p class="recipe__title display-3 mb-2">{{ recipe.title }}</p>
+        <p class="recipe__description text-muted">{{ recipe.description }}</p>
       </div>
 
       <!-- RECIPE INGREDIENTS -->
@@ -23,9 +24,12 @@
         </h3>
 
         <ul class="text-muted">
-          <li>Test 1</li>
-          <li>Test 2</li>
-          <li>Test 3</li>
+          <li class="ps-1"
+              *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.amount }}
+            {{ ingredient.measurement }}
+            {{ ingredient.name }}
+          </li>
         </ul>
       </div>
 
@@ -40,9 +44,13 @@
         </h3>
 
         <ul class="recipe__steps text-muted">
-          <li>Test 1</li>
-          <li>Test 2</li>
-          <li>Test 3</li>
+          <li class="ps-2"
+              *ngFor="let direction of recipe.directions">
+            <small class="text-secondary fw-bold"
+                   *ngIf="direction.optional">( OPTIONAL )</small>
+
+            {{ direction.instructions }}
+          </li>
         </ul>
       </div>
 
@@ -51,35 +59,34 @@
     <!-- RECIPE BOOKMARK -->
     <div class="bookmark">
       <div class="bookmark__cover">
-        <img srcset="assets/images/foods/queso-brat-scramble/queso_brat_scramble--s.jpg 200w,
-               assets/images/foods/queso-brat-scramble/queso_brat_scramble--m.jpg 570w,
-               assets/images/foods/queso-brat-scramble/queso_brat_scramble.jpeg 1200w"
-             sizes="(min-width: 992px) 30vw,
-                    50vw"
+        <img srcset="{{ recipe.images.small }} 200w,
+                     {{ recipe.images.medium }} 570w,
+                     {{ recipe.images.full }} 1200w"
+             sizes="(min-width: 992px) 30vw, 50vw"
              class="bookmark__image card-img-top img-fluid mb-4"
-             [src]="'assets/images/foods/queso-brat-scramble/queso_brat_scramble.jpeg'"
-             [alt]="'sample'">
+             [src]="recipe.images.medium"
+             [alt]="recipe.title">
 
         <div class="bookmark__timeframe">
           <p>
             <svg class="bookmark__icon icon icon-copyright">
               <use xlink:href="assets/images/icons/symbol-defs.svg#icon-face"></use>
             </svg>
-            <span class="ms-2">5 servings</span>
+            <span class="ms-2">{{ recipe.servings }} servings</span>
           </p>
 
           <p class="my-1">
             <svg class="bookmark__icon icon icon-copyright">
               <use xlink:href="assets/images/icons/symbol-defs.svg#icon-timer"></use>
             </svg>
-            <span class="ms-2">10 minutes</span>
+            <span class="ms-2">{{ recipe.prepTime }} minutes</span>
           </p>
 
           <p>
             <svg class="bookmark__icon icon icon-copyright">
               <use xlink:href="assets/images/icons/symbol-defs.svg#icon-bowl"></use>
             </svg>
-            <span class="ms-2">20 minutes</span>
+            <span class="ms-2">{{ recipe.cookTime }} minutes</span>
           </p>
         </div>
       </div>

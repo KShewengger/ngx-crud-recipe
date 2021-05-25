@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { RecipesComponent, RecipeComponent } from '@recipes/pages';
-import { RecipesGuard } from '@recipes/shared';
+import { RecipesGuard, RecipeGuard } from '@recipes/shared';
 
 
 const routes: Routes = [
@@ -13,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: RecipeComponent
+    component: RecipeComponent,
+    canActivate: [ RecipeGuard ]
   }
 ];
 

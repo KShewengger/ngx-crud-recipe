@@ -8,7 +8,7 @@ import { RecipesRoutingModule } from '@recipes/recipes-routing.module';
 
 import { pages } from '@recipes/pages';
 import { components } from '@recipes/components';
-import { guards, directives, reducers, effects } from '@recipes/shared';
+import { directives, reducers, effects } from '@recipes/shared';
 
 
 @NgModule({
@@ -22,7 +22,6 @@ import { guards, directives, reducers, effects } from '@recipes/shared';
     RecipesRoutingModule,
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)
-  ],
-  providers: [ ...guards ]
+  ]
 })
 export class RecipesModule { }

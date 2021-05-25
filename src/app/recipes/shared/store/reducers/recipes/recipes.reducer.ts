@@ -41,9 +41,12 @@ export function reducer(state: RecipeState = initialState, action: fromActions.R
         loaded: false
       };
     }
-  }
 
-  return state;
+    default: {
+      return state;
+    }
+
+  }
 
 }
 

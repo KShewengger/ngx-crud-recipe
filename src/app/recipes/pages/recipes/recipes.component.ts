@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
@@ -12,7 +12,8 @@ import { getAllRecipes, ProductsState } from '@recipes/shared/store';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  styleUrls: ['./recipes.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecipesComponent implements OnInit, OnDestroy {
 

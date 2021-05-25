@@ -8,7 +8,8 @@
   position: relative;
 
   &__body {
-    padding: 3rem;
+    padding: 3rem 0 3rem 3rem;
+    flex: 1;
   }
 
   &__title {
