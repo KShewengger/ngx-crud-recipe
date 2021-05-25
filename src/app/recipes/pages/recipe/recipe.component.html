@@ -9,6 +9,12 @@
 
       <!-- HEADER -->
       <div class="recipe__header mb-md-5 mb-4">
+        <p class="recipe__back mb-4 d-flex align-items-center"
+           [routerLink]="['../']">
+          <span class="recipe__back--pointer me-2">&lt;</span>
+          <span class="recipe__back--text mt-1">Back</span>
+        </p>
+
         <p class="recipe__title display-3 mb-2">{{ recipe.title }}</p>
         <p class="recipe__description text-muted">{{ recipe.description }}</p>
       </div>
@@ -96,8 +102,8 @@
 
   <!-- RECIPE BUTTONS -->
   <div class="text-center mt-5">
-    <a class="btn btn-primary btn--edit me-2">Edit</a>
-    <a class="btn btn-secondary btn--delete text-white">Delete</a>
+    <a class="btn btn-primary btn--edit mx-2">Edit</a>
+    <a class="btn btn-danger btn--delete text-white">Delete</a>
   </div>
 
 </div>

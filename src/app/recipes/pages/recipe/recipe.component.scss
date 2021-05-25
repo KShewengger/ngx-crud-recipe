@@ -7,6 +7,17 @@
   padding-bottom: 4rem;
   position: relative;
 
+  &__back {
+    cursor: pointer;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+
+    &--pointer {
+      font-size: 1.2rem;
+    }
+  }
+
   &__body {
     padding: 3rem 0 3rem 3rem;
     flex: 1;
