@@ -9,11 +9,16 @@
 
       <!-- HEADER -->
       <div class="recipe__header mb-md-5 mb-4">
-        <p class="recipe__back mb-4 d-flex align-items-center"
+        <div class="recipe__back mb-4 d-flex align-items-center"
            [routerLink]="['../']">
-          <span class="recipe__back--pointer me-2">&lt;</span>
-          <span class="recipe__back--text mt-1">Back</span>
-        </p>
+          <svg class="recipe__back--icon icon icon-chevron-thin-left me-1">
+            <use xlink:href="assets/images/icons/symbol-defs.svg#icon-chevron-thin-left"></use>
+          </svg>
+
+          <p>
+            <small class="recipe__back--text mt-2 text-uppercase">Back</small>
+          </p>
+        </div>
 
         <p class="recipe__title display-3 mb-2">{{ recipe.title }}</p>
         <p class="recipe__description text-muted">{{ recipe.description }}</p>

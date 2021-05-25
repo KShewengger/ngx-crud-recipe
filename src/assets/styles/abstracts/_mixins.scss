@@ -18,7 +18,3 @@
     @media only screen and (max-width: 87.5em) { @content };
   }
 }
-
-@mixin max-width-responsive($custom-breakpoint) {
-  @media only screen and (max-width: $custom-breakpoint) { @content };
-}
