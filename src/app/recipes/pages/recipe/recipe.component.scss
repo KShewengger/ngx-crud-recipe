@@ -1,7 +1,11 @@
+@import '~src/assets/styles/abstracts/mixins';
+
+
 .recipe {
   background-color: white;
   border-radius: 1rem;
   padding-bottom: 4rem;
+  position: relative;
 
   &__body {
     padding: 3rem;
@@ -15,10 +19,6 @@
     font-weight: 400;
   }
 
-  &__image {
-    border-radius: 0.5rem;
-  }
-
   &__steps {
     list-style-type: decimal;
   }
@@ -29,23 +29,29 @@
     height: 1.5rem;
   }
 
-  &__button {
-    padding: 0.5rem;
-    width: 6rem;
-    letter-spacing: 0.1rem;
-    font-weight: 500;
+  @include max-width-responsive(61.9375em) {
 
-    &--edit {
-      color: var(--color-brown);
+    overflow: hidden;
+    padding: 0 0 3rem 0;
+
+    &__wrapper {
+      flex-direction: column;
     }
 
-    &:hover {
-      transform: translateY(-0.0625rem);
-      box-shadow: 0 0.0625rem 0.1875rem var(--color-gray);
+    &__body {
+      order: 1;
+      padding: 1rem 2rem;
     }
 
-    &:active {
-      transform: translateY(0);
+    &__bookmark {
+      filter: unset;
+      margin-left: unset;
+
+      &__cover {
+        background-color: unset;
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
@@ -54,6 +60,7 @@
 // BOOKMARK
 .bookmark {
   filter: drop-shadow(-0.0625rem 0.375rem 0.1875rem rgba(50, 50, 0, 0.5));
+  margin-left: 3rem;
 
   &__cover {
     background-color: var(--color-brown-dark);
@@ -66,6 +73,10 @@
     top: -1rem;
   }
 
+  &__image {
+    border-radius: 0.5rem;
+  }
+
   &__timeframe {
     text-align: center;
     line-height: 1.8;
@@ -75,5 +86,56 @@
 
   &__icon {
     fill: white;
+  }
+
+  @include max-width-responsive(61.9375em) {
+    filter: unset;
+    margin-left: unset;
+
+    &__cover {
+      background-color: unset;
+      width: 100%;
+      height: auto;
+      clip-path: unset;
+      top: 0;
+      padding: 0;
+    }
+
+    &__image {
+      border-radius: 0;
+    }
+
+    &__timeframe {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0;
+      padding: 1rem;
+      line-height: unset;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0;
+      background-color: var(--color-alpha-brown-dark);
+      clip-path: polygon(100% 0, 95% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0%);
+      width: 28rem;
+      justify-content: space-evenly;
+    }
+
+    &__icon {
+      margin-left: -1rem;
+    }
+  }
+
+  @include max-width-responsive(35.9375em) {
+    &__timeframe {
+      width: 100%;
+      padding: 0.5rem;
+      clip-path: unset;
+      position: relative;
+      background-color: var(--color-brown-dark);
+    }
+
+    &__icon {
+      margin-left: auto;
+    }
   }
 }

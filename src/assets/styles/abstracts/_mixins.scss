@@ -1,0 +1,24 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == xsmall {
+    @media only screen and (max-width: 23.4375em) { @content };
+  }
+  @if $breakpoint == small {
+    @media only screen and (max-width: 36em) { @content };
+  }
+  @if $breakpoint == medium {
+    @media only screen and (max-width: 48em) { @content };
+  }
+  @if $breakpoint == large {
+    @media only screen and (max-width: 62em) { @content };
+  }
+  @if $breakpoint == extra-large {
+    @media only screen and (max-width: 75em) { @content };
+  }
+  @if $breakpoint == extra-extra-large {
+    @media only screen and (max-width: 87.5em) { @content };
+  }
+}
+
+@mixin max-width-responsive($custom-breakpoint) {
+  @media only screen and (max-width: $custom-breakpoint) { @content };
+}

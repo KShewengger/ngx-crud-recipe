@@ -1,0 +1,21 @@
+.btn {
+
+  padding: 0.5rem;
+  width: 6rem;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+
+  &--edit {
+    color: $color-brown;
+  }
+
+  &:hover {
+    transform: translateY(-0.0625rem);
+    box-shadow: 0 0.0625rem 0.1875rem $color-gray;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+}

@@ -21,6 +21,8 @@
 
   --color-white: #{$color-white};
   --color-back: #{$color-black};
+
+  --color-alpha-brown-dark: #{$color-alpha-brown-dark};
 }
 
 
@@ -30,6 +32,28 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+html {
+  font-size: 100%;
+  transition: all .2s ease-in-out;
+
+  @include respond(large) {
+    font-size: 90%;
+  }
+
+  @include respond(medium) {
+    font-size: 85%;
+  }
+
+  @include respond(small) {
+    font-size: 80%;
+  }
+
+  @include respond(xsmall) {
+    font-size: 75%;
+  }
+
 }
 
 body {
