@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { RecipesComponent, RecipeComponent } from '@recipes/pages';
+import { RecipesComponent, RecipeComponent, RecipeFormComponent } from '@recipes/pages';
 import { RecipesGuard, RecipeGuard } from '@recipes/shared';
 
 
@@ -12,9 +12,17 @@ const routes: Routes = [
     canActivate: [ RecipesGuard ]
   },
   {
+    path: 'form',
+    component: RecipeFormComponent
+  },
+  {
     path: ':id',
     component: RecipeComponent,
     canActivate: [ RecipeGuard ]
+  },
+  {
+    path: ':id/form',
+    component: RecipeFormComponent
   }
 ];
 
