@@ -9,7 +9,11 @@
     color: $color-brown;
   }
 
-  &:hover {
+  &--styled {
+    box-shadow: unset;
+  }
+
+  &:hover:not(&--unstyled) {
     transform: translateY(-0.0625rem);
     box-shadow: 0 0.0625rem 0.1875rem $color-gray;
   }

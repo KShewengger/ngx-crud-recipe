@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { RecipesRoutingModule } from '@recipes/recipes-routing.module';
 
 import { pages } from '@recipes/pages';
@@ -19,6 +21,7 @@ import { directives, reducers, effects } from '@recipes/shared';
   ],
   imports: [
     CommonModule,
+    ModalModule.forRoot(),
     RecipesRoutingModule,
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)

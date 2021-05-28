@@ -10,7 +10,8 @@ import { Recipe } from '@recipes/shared';
 })
 export class RecipeCardComponent {
 
-  @Input() recipe: Recipe;
+  @Input()
+  recipe: Recipe;
 
   constructor() { }
 

@@ -108,7 +108,8 @@
   <!-- RECIPE BUTTONS -->
   <div class="text-center mt-5">
     <a class="btn btn-primary btn--edit mx-2">Edit</a>
-    <a class="btn btn-secondary btn--delete text-white">Delete</a>
+    <a class="btn btn-secondary btn--delete text-white"
+       (click)="deleteRecipe(recipe.title)">Delete</a>
   </div>
 
 </div>
