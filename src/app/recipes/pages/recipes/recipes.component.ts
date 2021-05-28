@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
@@ -16,10 +16,10 @@ import { getAllRecipes, ProductsState } from '@recipes/shared/store';
 })
 export class RecipesComponent implements OnInit, OnDestroy {
 
+  recipes$: Observable<Recipe[]>;
   search$: Subject<string> = new Subject<string>();
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  recipes$: Observable<Recipe[]>;
   recipes: Recipe[];
 
   constructor(private store: Store<ProductsState>) { }
@@ -43,19 +43,20 @@ export class RecipesComponent implements OnInit, OnDestroy {
   }
 
   onSearchChange(): void {
-    this.search$
+    const filterRecipes$ = (value: string) => this.recipes$
+      .pipe(
+        map(recipes => recipes.filter(({ title }) => title.toLowerCase().includes(value.toLowerCase())))
+      );
+
+    const searchRecipe$ = this.search$
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
-        switchMap(value =>
-          this.recipes$
-            .pipe(
-              map(recipes => recipes.filter(({ title }) => title.toLowerCase().includes(value.toLowerCase())))
-            )
-        ),
+        switchMap(filterRecipes$),
         takeUntil(this.destroy$)
-      )
-      .subscribe(recipes => this.recipes = recipes);
+      );
+
+    searchRecipe$.subscribe(recipes => this.recipes = recipes);
   }
 
 }

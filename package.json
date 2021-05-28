@@ -6,7 +6,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "mock:server": "json-server --watch mocks/recipes.json --id uuid --port 3001",
+    "mock:server": "json-server --watch data/recipes.json --id uuid --port 3001",
     "start": "ng serve",
     "dev:ssr": "ng run ngx-simple-crud-recipe:serve-ssr",
     "serve:ssr": "node dist/ngx-simple-crud-recipe/server/main.js",
