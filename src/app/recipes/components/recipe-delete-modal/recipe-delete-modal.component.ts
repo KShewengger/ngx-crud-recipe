@@ -5,8 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-recipe-delete-modal',
-  templateUrl: './recipe-delete-modal.component.html',
-  styleUrls: ['./recipe-delete-modal.component.scss']
+  templateUrl: './recipe-delete-modal.component.html'
 })
 export class RecipeDeleteModalComponent {
 
