@@ -4,7 +4,7 @@ An Angular 12 application with Ngrx Store, Effects, and Router Store with perfor
 
 ## Tools
 
-`Angular 12` `Angular CLI` `Bootstrap 5` `JSON Server` `Ngrx/store` `Ngrx/effects` `Ngrx/router-store` `Angular Universal` `Angular PWA` `Jasmine` `Karma`
+`Angular 12` `Angular CLI` `Bootstrap 5` `JSON Server` `Ngrx/store` `Ngrx/effects` `Ngrx/router-store` `Ngrx/entity` `Angular Universal` `Angular PWA` `Jasmine` `Karma`
 
 ## Installation
 
@@ -17,5 +17,7 @@ $ npm run build:ssr                 // Builds the application
 
 $ npm run serve:ssr                 // Runs Angular app at http://localhost:4000
 
-$ npm run mock:server               // Runs JSON Server at http://localhost:3001
+$ npm run server                    // Runs JSON Server at http://localhost:3001
+
+$ npm run restore:data              // Restore data to its original state
 ```
