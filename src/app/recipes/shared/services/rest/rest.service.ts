@@ -1,4 +1,3 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
@@ -11,13 +10,18 @@ export class RestService {
     protected apiUrl?: string
   ) { }
 
-  generateUrl(endpoint: string, uuid: string): string {
-    return `${this.apiUrl}/${endpoint}/${uuid}`;
+  generateUrl(uuid: string): string {
+    return `${this.apiUrl}/recipes/${uuid}`;
   }
 
-  get<T>(endpoint: string, uuid: string = ''): Observable<T extends T[] ? T[] : T> {
-    const url = this.generateUrl(endpoint, uuid);
+  get<T>(uuid: string = ''): Observable<T extends T[] ? T[] : T> {
+    const url = this.generateUrl(uuid);
     return this.http.get<T extends T[] ? T[] : T>(url);
+  }
+
+  delete(uuid: string): Observable<Object> {
+    const url = this.generateUrl(uuid);
+    return this.http.delete(url);
   }
 
 }

@@ -22,11 +22,11 @@ export class RecipeService extends RestService {
   }
 
   getAllRecipes(): Observable<Recipe[]> {
-    return this.get<Recipe[]>('recipes');
+    return this.get<Recipe[]>();
   }
 
-  getRecipe(uuid: string): Observable<Recipe> {
-    return this.get<Recipe>('recipe', uuid);
+  deleteRecipe(uuid: string): Observable<Object> {
+    return this.delete(uuid);
   }
 
 }

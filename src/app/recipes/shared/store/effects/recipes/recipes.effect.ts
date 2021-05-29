@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 
 import { of } from 'rxjs';
-import { map, switchMap, catchError, tap } from 'rxjs/operators';
+import { map, switchMap, catchError } from 'rxjs/operators';
 
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 
 import { RecipeService } from '@recipes/shared';
 import * as fromActions from '@recipes/shared/store/actions';
+
+import { Go } from '@core/store';
 
 
 @Injectable()
@@ -27,6 +29,25 @@ export class RecipesEffects {
       )
     )
   ));
+
+  deleteRecipe$ = createEffect(() => this.actions$
+    .pipe(
+      ofType(fromActions.DELETE_RECIPE),
+      map((action: fromActions.DeleteRecipe) => action.payload),
+      switchMap(recipe => this.recipeService
+        .deleteRecipe(recipe.uuid)
+        .pipe(
+          map(() => new fromActions.DeleteRecipeSuccess(recipe)),
+          catchError(error => of(new fromActions.DeleteRecipeFail(error)))
+        )
+      )
+    ));
+
+  handleRecipeSuccess$ = createEffect(() => this.actions$
+    .pipe(
+      ofType(fromActions.DELETE_RECIPE_SUCCESS),
+      map(() => new Go({ path: ['/'] }))
+    ));
 
 }
 

@@ -1,12 +1,16 @@
+import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
+
 import * as fromActions from '@recipes/shared/store/actions';
 import { Recipe, RecipeState } from '@recipes/shared';
 
 
-export const initialState: RecipeState = {
-  entities: {},
+export const recipeAdapter: EntityAdapter<Recipe> = createEntityAdapter<Recipe>();
+
+export const initialState: RecipeState = recipeAdapter.getInitialState({
+  entities: null,
   loaded: false,
   loading: false,
-};
+});
 
 export function reducer(state: RecipeState = initialState, action: fromActions.RecipesAction): RecipeState {
 
@@ -40,6 +44,10 @@ export function reducer(state: RecipeState = initialState, action: fromActions.R
         loading: false,
         loaded: false
       };
+    }
+
+    case fromActions.DELETE_RECIPE_SUCCESS: {
+      return recipeAdapter.removeOne(action.payload.uuid, state);
     }
 
     default: {

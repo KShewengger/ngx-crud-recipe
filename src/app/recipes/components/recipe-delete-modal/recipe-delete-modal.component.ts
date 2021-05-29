@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
+import { Recipe } from '@recipes/shared';
+
 
 @Component({
   selector: 'app-recipe-delete-modal',
@@ -10,15 +12,15 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class RecipeDeleteModalComponent {
 
   @Input()
-  title: string;
+  recipe: Recipe;
 
   @Output()
-  confirm$: EventEmitter<boolean> = new EventEmitter<boolean>();
+  confirm$: EventEmitter<Recipe> = new EventEmitter<Recipe>();
 
   constructor(public bsModalRef: BsModalRef) { }
 
   confirmDelete(): void {
-    this.confirm$.next(true);
+    this.confirm$.next(this.recipe);
     this.close();
   }
 

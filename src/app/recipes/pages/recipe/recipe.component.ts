@@ -9,7 +9,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { RecipeDeleteModalComponent } from '@recipes/components/recipe-delete-modal/recipe-delete-modal.component';
 
-import { getSelectedRecipe, ProductsState } from '@recipes/shared/store';
+import { getSelectedRecipe, ProductsState, DeleteRecipe } from '@recipes/shared/store';
 import { Recipe } from '@recipes/shared/models';
 
 
@@ -40,23 +40,23 @@ export class RecipeComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  deleteRecipe(title: string): void {
-    const modalRef = this.initializeDeleteModal(title);
+  initializeDeleteModal(recipe: Recipe): BsModalRef {
+    const options = {
+      class: 'modal-dialog-centered',
+      initialState: { recipe }
+    };
+
+    return this.modalService.show(RecipeDeleteModalComponent, options);
+  }
+
+  deleteRecipe(recipe: Recipe): void {
+    const modalRef = this.initializeDeleteModal(recipe);
 
     modalRef
       .content
       .confirm$
       .pipe(takeUntil(this.destroy$))
-      .subscribe((isConfirm: boolean) => console.log(isConfirm));
-  }
-
-  initializeDeleteModal(title: string): BsModalRef {
-    const options = {
-      class: 'modal-dialog-centered',
-      initialState: { title }
-    };
-
-    return this.modalService.show(RecipeDeleteModalComponent, options);
+      .subscribe((recipe: Recipe) => this.store.dispatch(new DeleteRecipe(recipe)));
   }
 
 }
