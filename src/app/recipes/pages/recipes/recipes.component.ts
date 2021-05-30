@@ -8,6 +8,9 @@ import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map } from 'r
 import { Recipe } from '@recipes/shared';
 import { getAllRecipes, ProductsState } from '@recipes/shared/store';
 
+import { SeoService } from '@shared/services/seo/seo.service';
+import { Tag } from '@shared/models';
+
 
 @Component({
   selector: 'app-recipes',
@@ -22,9 +25,13 @@ export class RecipesComponent implements OnInit, OnDestroy {
 
   recipes: Recipe[];
 
-  constructor(private store: Store<ProductsState>) { }
+  constructor(
+    private store: Store<ProductsState>,
+    private seoService: SeoService
+  ) { }
 
   ngOnInit(): void {
+    this.setSeoTags();
     this.initializeData();
     this.onSearchChange();
   }
@@ -32,6 +39,15 @@ export class RecipesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
+  }
+
+  setSeoTags(): void {
+    const tags: Tag[] = [
+      { name: 'title', content: 'Recipes' },
+      { name: 'description', content: 'An Angular 12 application with Ngrx Store, Effects, and Router Store that performs CRUD operations for Food Recipes and using Mock API Calls with JSON Server.' }
+    ];
+
+    this.seoService.setSeoTags('Recipes', tags, 'updateTag');
   }
 
   initializeData(): void {
