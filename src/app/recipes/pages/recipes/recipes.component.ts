@@ -8,8 +8,8 @@ import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map } from 'r
 import { Recipe } from '@recipes/shared';
 import { getAllRecipes, ProductsState } from '@recipes/shared/store';
 
-import { SeoService } from '@shared/services/seo/seo.service';
-import { Tag } from '@shared/models';
+import { SeoService } from '@core/services';
+import { Tag } from '@core/models';
 
 
 @Component({

@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
-import { Tag, TagAction } from '@shared/models';
+import { Tag, TagAction } from '@core/models';
 
 
 @Injectable({

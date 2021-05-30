@@ -11,7 +11,8 @@ import { RecipeDeleteModalComponent } from '@recipes/components/recipe-delete-mo
 import { getSelectedRecipe, ProductsState, DeleteRecipe } from '@recipes/shared/store';
 import { Recipe } from '@recipes/shared/models';
 
-import { SeoService } from '@shared/services/seo/seo.service';
+import { SeoService } from '@core/services';
+import { Tag } from '@core/models';
 
 
 @Component({
@@ -47,7 +48,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
   }
 
   setSeoTags({ title, description }: Recipe): void {
-    const tags = [
+    const tags: Tag[] = [
       { name: 'title', content: title },
       { name: 'description', content: description }
     ];
@@ -55,7 +56,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
     this.seoService.setSeoTags(title, tags, 'updateTag');
   }
 
-  initializeDeleteModal(recipe: Recipe): BsModalRef {
+  showDeleteModal(recipe: Recipe): BsModalRef {
     const options = {
       class: 'modal-dialog-centered',
       initialState: { recipe }
@@ -65,7 +66,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
   }
 
   deleteRecipe(recipe: Recipe): void {
-    const modalRef = this.initializeDeleteModal(recipe);
+    const modalRef = this.showDeleteModal(recipe);
 
     modalRef
       .content
