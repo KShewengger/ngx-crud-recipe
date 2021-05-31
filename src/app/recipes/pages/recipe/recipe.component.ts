@@ -1,15 +1,13 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 
 import { Observable, Subject } from 'rxjs';
-import { takeUntil, tap, filter } from 'rxjs/operators';
+import { takeUntil, pluck } from 'rxjs/operators';
 
-import { getSelectedRecipe, ProductsState, DeleteRecipe } from '@recipes/shared/store';
+import { ProductsState, DeleteRecipe } from '@recipes/shared/store';
 import { Recipe } from '@recipes/shared/models';
-
-import { SeoService } from '@core/services';
-import { Tag } from '@core/models';
 
 
 @Component({
@@ -24,16 +22,14 @@ export class RecipeComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    private store: Store<ProductsState>,
-    private seoService: SeoService
+    private route: ActivatedRoute,
+    private store: Store<ProductsState>
   ) { }
 
   ngOnInit(): void {
-    this.recipe$ = this.store
-      .select(getSelectedRecipe)
+    this.recipe$ = this.route.data
       .pipe(
-        filter(recipe => !!recipe),
-        tap(recipe => this.setSeoTags(recipe)),
+        pluck('recipe'),
         takeUntil(this.destroy$)
       );
   }
@@ -41,15 +37,6 @@ export class RecipeComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
-  }
-
-  setSeoTags({ title, description }: Recipe): void {
-    const tags: Tag[] = [
-      { name: 'title', content: title },
-      { name: 'description', content: description }
-    ];
-
-    this.seoService.setSeoTags(title, tags, 'updateTag');
   }
 
   onRecipeModalResponse(recipe: Recipe): void {

@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { filter, take, takeUntil, tap } from 'rxjs/operators';
 
-import { getAllRecipes, ProductsState, Recipe } from '@recipes/shared';
+import { getSelectedRecipe, ProductsState, Recipe } from '@recipes/shared';
 
 import { SeoService } from '@core/services';
 import { Tag } from '@core/models';
@@ -15,7 +15,7 @@ import { Tag } from '@core/models';
 @Injectable({
   providedIn: 'root'
 })
-export class RecipesResolver implements OnDestroy, Resolve<Recipe[]> {
+export class RecipeResolver implements OnDestroy, Resolve<Recipe> {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -29,24 +29,24 @@ export class RecipesResolver implements OnDestroy, Resolve<Recipe[]> {
     this.destroy$.complete();
   }
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Recipe[]> {
+  resolve(route: ActivatedRouteSnapshot): Observable<Recipe> {
     return this.store
-      .select(getAllRecipes)
+      .select(getSelectedRecipe)
       .pipe(
-        filter(recipes => !!recipes),
+        filter(recipe => !!recipe),
         take(1),
-        tap(() => this.setSeoTags()),
+        tap(recipe => this.setSeoTags(recipe)),
         takeUntil(this.destroy$)
       );
   }
 
-  setSeoTags(): void {
+  setSeoTags({ title, description }: Recipe): void {
     const tags: Tag[] = [
-      { name: 'title', content: 'Recipes' },
-      { name: 'description', content: 'An Angular 12 application with Ngrx Store, Effects, and Router Store that performs CRUD operations for Food Recipes and using Mock API Calls with JSON Server.' }
+      { name: 'title', content: title },
+      { name: 'description', content: description }
     ];
 
-    this.seoService.setSeoTags('Recipes', tags, 'updateTag');
+    this.seoService.setSeoTags(title, tags, 'updateTag');
   }
 
 
