@@ -1,15 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { Store } from '@ngrx/store';
+import { ActivatedRoute } from '@angular/router';
 
 import { Observable, Subject } from 'rxjs';
-import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
+import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map, pluck, tap } from 'rxjs/operators';
 
 import { Recipe } from '@recipes/shared';
-import { getAllRecipes, ProductsState } from '@recipes/shared/store';
-
-import { SeoService } from '@core/services';
-import { Tag } from '@core/models';
 
 
 @Component({
@@ -25,14 +20,10 @@ export class RecipesComponent implements OnInit, OnDestroy {
 
   recipes: Recipe[];
 
-  constructor(
-    private store: Store<ProductsState>,
-    private seoService: SeoService
-  ) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.setSeoTags();
-    this.initializeData();
+    this.initializeRecipes();
     this.onSearchChange();
   }
 
@@ -41,38 +32,27 @@ export class RecipesComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  setSeoTags(): void {
-    const tags: Tag[] = [
-      { name: 'title', content: 'Recipes' },
-      { name: 'description', content: 'An Angular 12 application with Ngrx Store, Effects, and Router Store that performs CRUD operations for Food Recipes and using Mock API Calls with JSON Server.' }
-    ];
+  initializeRecipes(): void {
+    this.recipes$ = this.route.data.pipe(
+      pluck('recipes'),
+      takeUntil(this.destroy$)
+    );
 
-    this.seoService.setSeoTags('Recipes', tags, 'updateTag');
-  }
-
-  initializeData(): void {
-    this.recipes$ = this.store.select(getAllRecipes);
-
-    this.recipes$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(recipes => this.recipes = recipes);
+    this.recipes$.subscribe(recipes => this.recipes = recipes);
   }
 
   onSearchChange(): void {
     const filterRecipes$ = (value: string) => this.recipes$
-      .pipe(
-        map(recipes => recipes.filter(({ title }) => title.toLowerCase().includes(value.toLowerCase())))
-      );
+      .pipe(map(recipes => recipes.filter(({ title }) => title.toLowerCase().includes(value.toLowerCase()))));
 
-    const searchRecipe$ = this.search$
+    this.search$
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
         switchMap(filterRecipes$),
         takeUntil(this.destroy$)
-      );
-
-    searchRecipe$.subscribe(recipes => this.recipes = recipes);
+      )
+      .subscribe(recipes => this.recipes = recipes);
   }
 
 }
