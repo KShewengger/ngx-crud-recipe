@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap, map, tap, take, filter } from 'rxjs/operators';
 
-import { getRecipesEntities, getRecipesLoaded, LoadRecipes, ProductsState, Recipe } from '@recipes/shared';
+import { getRecipesEntities, getRecipesLoaded, LoadRecipes, ProductsState } from '@recipes/shared';
 
 
 @Injectable({

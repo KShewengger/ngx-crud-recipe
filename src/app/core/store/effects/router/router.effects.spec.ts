@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { Observable } from 'rxjs';
 
 import { RouterEffects } from './router.effects';
@@ -10,6 +12,7 @@ describe('RouterEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       providers: [
         RouterEffects,
         provideMockActions(() => actions$)
