@@ -9,7 +9,8 @@ import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router
 import { API_URL } from '@core/tokens';
 import { HttpErrorInterceptor } from '@core/interceptors';
 import { META_REDUCERS as metaReducers, STORE_INSTRUMENT }  from '@core/config';
-import { RouterEffects, reducers, CustomSerializer } from '@core/store';
+import { RouterEffects, reducers } from '@core/store';
+import { CustomSerializer } from '@core/services';
 
 import { environment } from '@environments/environment';
 

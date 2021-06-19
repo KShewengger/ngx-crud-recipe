@@ -8,7 +8,7 @@ import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { RecipeService } from '@recipes/shared';
 import * as fromActions from '@recipes/shared/store/actions';
 
-import { Go } from '@core/store';
+import { go } from '@core/store';
 
 
 @Injectable()
@@ -46,7 +46,7 @@ export class RecipesEffects {
   handleRecipeSuccess$ = createEffect(() => this.actions$
     .pipe(
       ofType(fromActions.DELETE_RECIPE_SUCCESS),
-      map(() => new Go({ path: ['/'] }))
+      map(() => go({ path: ['/'] }))
     ));
 
 }
