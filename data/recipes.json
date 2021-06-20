@@ -316,6 +316,79 @@
           "optional": false
         }
       ]
+    },
+    {
+      "id": "3555aec3-47e1-44d4-b8f2-607aad5cee69",
+      "title": "Brussel Chips",
+      "description": "Tasty, crispy, spicy and healthy!",
+      "images": {
+        "full": "assets/images/foods/brussel-chips/brussel_chips.jpeg",
+        "medium": "assets/images/foods/brussel-chips/brussel_chips--m.jpg",
+        "small": "assets/images/foods/brussel-chips/brussel_chips--s.jpg"
+      },
+      "servings": 4,
+      "prepTime": 15,
+      "cookTime": 25,
+      "postDate": "03/28/2018 01:27:51 AM",
+      "editDate": "03/30/2018 05:51:52 PM",
+      "ingredients": [
+        {
+          "id": "77ae45d7-659b-4cb5-a4ea-07f00e442974",
+          "amount": 2,
+          "measurement": "tablespoons",
+          "name": "butter"
+        },
+        {
+          "id": "86b9842d-3025-4d27-82aa-459ef4f8ab7f",
+          "amount": 1.5,
+          "measurement": "teaspoons",
+          "name": "dijon mustard"
+        },
+        {
+          "id": "210b15ac-552e-4450-b162-c0a41bb3389d",
+          "amount": 0.25,
+          "measurement": "teaspoon",
+          "name": "salt"
+        },
+        {
+          "id": "3d6ee987-8ffd-479c-88e0-e3eca690704f",
+          "amount": 1,
+          "measurement": "pinch",
+          "name": "red pepper flakes"
+        },
+        {
+          "id": "95e5a38d-26db-4e90-9773-d6be11a280df",
+          "amount": 1,
+          "measurement": "pound",
+          "name": "brussel sprouts"
+        }
+      ],
+      "directions": [
+        {
+          "instructions": "Place a rack in top position of your oven and preheat to 325 F.",
+          "optional": false
+        },
+        {
+          "instructions": "Line a baking sheet with aluminum foil.",
+          "optional": false
+        },
+        {
+          "instructions": "Trim the stems of the Brussels sprouts to release outermost leaves, about 5 leaves from each sprout.",
+          "optional": false
+        },
+        {
+          "instructions": "Place leaves in the bowl of sauce; toss with your fingers until all the leaves are evenly coated.",
+          "optional": false
+        },
+        {
+          "instructions": "Spread leaves on the baking sheet in a single layer.",
+          "optional": false
+        },
+        {
+          "instructions": "Roast leaves in the preheated oven until wilted and lightly browned, about 15 minutes. Transfer any crispy leaves to a serving plate and continue roasting, removing crispy leaves at 5-minute intervals, until all leaves are crispy, about 10 minutes more.",
+          "optional": false
+        }
+      ]
     }
   ]
 }

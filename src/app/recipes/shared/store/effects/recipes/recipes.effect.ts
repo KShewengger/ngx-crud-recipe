@@ -5,7 +5,7 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 
-import { Recipe, RecipeService } from '@recipes/shared';
+import { RecipeService } from '@recipes/shared';
 import * as RecipeActions from '@recipes/shared/store/actions';
 
 import { go } from '@core/store';

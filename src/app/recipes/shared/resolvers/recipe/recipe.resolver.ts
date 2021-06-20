@@ -1,9 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { Resolve } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
 
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { filter, take, takeUntil, tap } from 'rxjs/operators';
 
 import { Recipe, RecipeState, selectCurrentRecipe } from '@recipes/shared';
@@ -29,7 +29,7 @@ export class RecipeResolver implements OnDestroy, Resolve<Recipe> {
     this.destroy$.complete();
   }
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Recipe> {
+  resolve(): Observable<Recipe> {
     return this.store
       .pipe(
         select(selectCurrentRecipe),

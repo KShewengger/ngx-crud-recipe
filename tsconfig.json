@@ -7,6 +7,8 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "declaration": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",

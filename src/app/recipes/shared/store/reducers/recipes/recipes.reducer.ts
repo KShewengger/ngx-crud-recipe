@@ -1,8 +1,8 @@
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import * as RecipesActions from '@recipes/shared/store/actions';
 import { Recipe, RecipeState } from '@recipes/shared';
-import { Action, createReducer, on, State } from '@ngrx/store';
 
 
 export const recipeAdapter: EntityAdapter<Recipe> = createEntityAdapter<Recipe>();

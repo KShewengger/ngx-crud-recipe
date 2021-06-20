@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,12 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './recipe-form.component.html',
   styleUrls: ['./recipe-form.component.scss']
 })
-export class RecipeFormComponent implements OnInit {
+export class RecipeFormComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-
-  }
 
 }

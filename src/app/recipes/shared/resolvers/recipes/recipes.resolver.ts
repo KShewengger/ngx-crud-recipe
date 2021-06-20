@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { Resolve } from '@angular/router';
 
 import { select, Store } from '@ngrx/store';
 
@@ -29,7 +29,7 @@ export class RecipesResolver implements OnDestroy, Resolve<Recipe[]> {
     this.destroy$.complete();
   }
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Recipe[]> {
+  resolve(): Observable<Recipe[]> {
     return this.store
       .pipe(
         select(selectAllRecipes),
@@ -48,6 +48,5 @@ export class RecipesResolver implements OnDestroy, Resolve<Recipe[]> {
 
     this.seoService.setSeoTags('Recipes', tags, 'updateTag');
   }
-
 
 }

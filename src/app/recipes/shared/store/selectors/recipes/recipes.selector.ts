@@ -1,10 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { getRouterState } from '@core/store';
+import { selectRouterState } from '@core/store';
 
 import { RecipeState } from '@recipes/shared/models/recipe/recipe.model';
 import * as RecipeReducer from '@recipes/shared/store/reducers';
-import { Observable } from 'rxjs';
 
 
 export const selectRecipesState = createFeatureSelector<RecipeState>('recipes');
@@ -36,6 +35,6 @@ export const selectRecipesLoaded = createSelector(
 
 export const selectCurrentRecipe = createSelector(
   selectAllRecipesEntities,
-  getRouterState,
+  selectRouterState,
   (entities, router) => router.state && entities[router.state.params.id]
 );

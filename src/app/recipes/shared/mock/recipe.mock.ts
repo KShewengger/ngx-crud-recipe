@@ -2,7 +2,7 @@ import { Recipe } from '@recipes/shared';
 
 
 export const RECIPE: Recipe = {
-  "uuid": "e80ea521-4d42-48fe-a7a6-ac8952bc0de4",
+  "id": "e80ea521-4d42-48fe-a7a6-ac8952bc0de4",
   "title": "Queso Brat Scramble",
   "description": "A delicious breakfast, fit for a crowd.",
   "images": {
