@@ -389,6 +389,97 @@
           "optional": false
         }
       ]
+    },
+    {
+      "id": "f8fc88dc-2f89-43fa-b431-00d90eeba521",
+      "title": "Pancake Mountain",
+      "description": "A giant stack of pancakes to share or to horde.",
+      "images": {
+        "full": "assets/images/foods/pancake-mountain/pancake_mountain.jpeg",
+        "medium": "assets/images/foods/pancake-mountain/pancake_mountain--m.jpg",
+        "small": "assets/images/foods/pancake-mountain/pancake_mountain--s.jpg"
+      },
+      "servings": 8,
+      "prepTime": 15,
+      "cookTime": 20,
+      "postDate": "04/14/2018 07:28:54 PM",
+      "editDate": "04/17/2018 03:20:16 PM",
+      "ingredients": [
+        {
+          "id": "aa1ff525-4190-4a66-8d12-3f383a752b55",
+          "amount": 1.5,
+          "measurement": "cups",
+          "name": "milk"
+        },
+        {
+          "id": "d4fbd3ee-add4-4e86-b8bb-898a97d5be78",
+          "amount": 4,
+          "measurement": "tablespoons",
+          "name": "white vinegar"
+        },
+        {
+          "id": "811a6f12-428e-4110-abcd-508e4080bc5c",
+          "amount": 2,
+          "measurement": "cups",
+          "name": "all-purpose flour"
+        },
+        {
+          "id": "28ed1238-648b-4559-a83c-5a2fb5f4ad25",
+          "amount": 4,
+          "measurement": "tablespoons",
+          "name": "white sugar"
+        },
+        {
+          "id": "698345bd-078d-495f-b233-df1b756dd8a7",
+          "amount": 2,
+          "measurement": "teaspoons",
+          "name": "baking powder"
+        },
+        {
+          "id": "6d4176cc-0c48-4e19-9d38-bb16578423a4",
+          "amount": 1,
+          "measurement": "teaspoon",
+          "name": "baking soda"
+        },
+        {
+          "id": "210b15ac-552e-4450-b162-c0a41bb3389d",
+          "amount": 1,
+          "measurement": "teaspoon",
+          "name": "salt"
+        },
+        {
+          "id": "3d810ba9-7e4e-48aa-b2e9-7918e38b358d",
+          "amount": 2,
+          "measurement": "",
+          "name": "eggs"
+        },
+        {
+          "id": "77ae45d7-659b-4cb5-a4ea-07f00e442974",
+          "amount": 4,
+          "measurement": "tablespoons",
+          "name": "butter, melted"
+        },
+        {
+          "id": "c8be68ed-d83b-4e6c-ba7a-082d3dc167f4",
+          "amount": null,
+          "measurement": "",
+          "name": "cooking spray"
+        }
+      ],
+      "directions": [
+        {
+          "instructions": "Combine milk with vinegar in a medium bowl and set aside for 5 minutes to \"sour\".",
+          "optional": false
+        },
+        {
+          "instructions": "Combine flour, sugar, baking powder, baking soda, and salt in a large mixing bowl. Whisk egg and butter into \"soured\" milk. Pour the flour mixture into the wet ingredients and whisk until lumps are gone.",
+          "optional": false
+        },
+        {
+          "instructions": "Heat a large skillet over medium heat, and coat with cooking spray. Pour 1/4 cupfuls of batter onto the skillet, and cook until bubbles appear on the surface. Flip with a spatula, and cook until browned on the other side.",
+          "optional": false
+        }
+      ]
     }
   ]
 }
