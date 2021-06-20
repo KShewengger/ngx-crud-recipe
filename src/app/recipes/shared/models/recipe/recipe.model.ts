@@ -6,7 +6,7 @@ import { RecipeDirection } from './recipe-direction.model';
 
 
 export interface Recipe {
-  uuid: string;
+  id: string;
   title: string;
   description: string;
   images: RecipeImage,

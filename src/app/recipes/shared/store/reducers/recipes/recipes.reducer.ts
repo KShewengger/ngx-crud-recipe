@@ -1,10 +1,17 @@
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 
-import * as fromActions from '@recipes/shared/store/actions';
+import * as RecipesActions from '@recipes/shared/store/actions';
 import { Recipe, RecipeState } from '@recipes/shared';
+import { Action, createReducer, on, State } from '@ngrx/store';
 
 
 export const recipeAdapter: EntityAdapter<Recipe> = createEntityAdapter<Recipe>();
+
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+} = recipeAdapter.getSelectors();
 
 export const initialState: RecipeState = recipeAdapter.getInitialState({
   entities: null,
@@ -12,53 +19,52 @@ export const initialState: RecipeState = recipeAdapter.getInitialState({
   loading: false,
 });
 
-export function reducer(state: RecipeState = initialState, action: fromActions.RecipesAction): RecipeState {
-
-  switch (action.type) {
-    case fromActions.LOAD_RECIPES: {
-      return {
-        ...state,
-        loading: true
-      };
-    }
-
-    case fromActions.LOAD_RECIPES_SUCCESS: {
-      const entities = action
-        .payload
-        .reduce((stateEntities: { [id: string]: Recipe }, recipe: Recipe) =>
-            ({ ...stateEntities, [recipe.uuid]: recipe }),
-          { ...state.entities }
-        );
-
-      return {
+const recipesReducer = createReducer(
+  initialState,
+  on(
+    RecipesActions.loadRecipes,
+    state => ({
+      ...state,
+      loading: true
+    })
+  ),
+  on(
+    RecipesActions.loadRecipesSuccess,
+    (state, { recipes }) => recipeAdapter.setAll(
+      recipes,
+      {
         ...state,
         loading: false,
-        loaded: true,
-        entities
-      };
-    }
+        loaded: true
+      }
+    )
+  ),
+  on(
+    RecipesActions.loadRecipesFail,
+    state => ({
+      ...state,
+      loading: false,
+      loaded: false
+    })
+  ),
+  on(
+    RecipesActions.loadRecipesFail,
+    state => ({
+      ...state,
+      loading: false,
+      loaded: false
+    })
+  ),
+  on(
+   RecipesActions.deleteRecipeSuccess,
+    (state, { recipe }) => recipeAdapter.removeOne(recipe.id, state)
+  )
+);
 
-    case fromActions.LOAD_RECIPES_FAIL: {
-      return {
-        ...state,
-        loading: false,
-        loaded: false
-      };
-    }
+export const selectRecipesIds = selectIds;
+export const selectRecipesEntities = selectEntities;
+export const selectRecipes = selectAll;
 
-    case fromActions.DELETE_RECIPE_SUCCESS: {
-      return recipeAdapter.removeOne(action.payload.uuid, state);
-    }
-
-    default: {
-      return state;
-    }
-
-  }
-
+export function reducer(state: RecipeState | undefined, action: Action) {
+  return recipesReducer(state, action);
 }
-
-
-export const getRecipesLoading = (state: RecipeState) => state.loading;
-export const getRecipesLoaded = (state: RecipeState) => state.loaded;
-export const getRecipesEntities = (state: RecipeState) => state.entities;

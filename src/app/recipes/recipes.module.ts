@@ -10,7 +10,7 @@ import { RecipesRoutingModule } from '@recipes/recipes-routing.module';
 
 import { pages } from '@recipes/pages';
 import { components } from '@recipes/components';
-import { directives, reducers, effects } from '@recipes/shared';
+import { directives, reducer, effects } from '@recipes/shared';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { directives, reducers, effects } from '@recipes/shared';
     CommonModule,
     ModalModule.forRoot(),
     RecipesRoutingModule,
-    StoreModule.forFeature('products', reducers),
+    StoreModule.forFeature('recipes', reducer),
     EffectsModule.forFeature(effects)
   ]
 })

@@ -1,36 +1,41 @@
-import { createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { getRouterState } from '@core/store';
-import { getProductsState, ProductsState, Recipe } from '@recipes/shared';
-import * as RecipesReducer from '@recipes/shared/store/reducers/recipes/recipes.reducer';
+
+import { RecipeState } from '@recipes/shared/models/recipe/recipe.model';
+import * as RecipeReducer from '@recipes/shared/store/reducers';
+import { Observable } from 'rxjs';
 
 
-export const getRecipeState = createSelector(
-  getProductsState,
-  (state: ProductsState) => state.recipes
+export const selectRecipesState = createFeatureSelector<RecipeState>('recipes');
+
+export const selectAllRecipes = createSelector(
+  selectRecipesState,
+  RecipeReducer.selectRecipes
 );
 
-export const getRecipesEntities = createSelector(
-  getRecipeState,
-  RecipesReducer.getRecipesEntities
+export const selectAllRecipesIds = createSelector(
+  selectRecipesState,
+  RecipeReducer.selectRecipesIds
+)
+
+export const selectAllRecipesEntities = createSelector(
+  selectRecipesState,
+  RecipeReducer.selectRecipesEntities
 );
 
-export const getSelectedRecipe = createSelector(
-  getRecipesEntities,
+export const selectRecipesLoading = createSelector(
+  selectRecipesState,
+  (state: RecipeState) => state.loading
+);
+
+export const selectRecipesLoaded = createSelector(
+  selectRecipesState,
+  (state: RecipeState) => state.loaded
+);
+
+export const selectCurrentRecipe = createSelector(
+  selectAllRecipesEntities,
   getRouterState,
-  (entities, router): Recipe => router.state && entities[router.state.params.id]
-);
-
-export const getAllRecipes = createSelector(
-  getRecipesEntities,
-  entities => Object.keys(entities).map(uuid => entities[uuid]));
-
-export const getRecipesLoaded = createSelector(
-  getRecipeState,
-  RecipesReducer.getRecipesLoaded
-);
-
-export const getRecipesLoading = createSelector(
-  getRecipeState,
-  RecipesReducer.getRecipesLoading
+  (entities, router) => router.state && entities[router.state.params.id]
 );

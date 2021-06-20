@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate } from '@angular/router';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 import { switchMap, map, tap, take, filter } from 'rxjs/operators';
 
-import { getRecipesEntities, getRecipesLoaded, LoadRecipes, ProductsState } from '@recipes/shared';
+import {
+  selectRecipesLoaded,
+  loadRecipes,
+  selectAllRecipesIds,
+  RecipeState
+} from '@recipes/shared';
 
 
 @Injectable({
@@ -14,7 +19,7 @@ import { getRecipesEntities, getRecipesLoaded, LoadRecipes, ProductsState } from
 })
 export class RecipeGuard implements CanActivate {
 
-  constructor(private store: Store<ProductsState>) {}
+  constructor(private store: Store<RecipeState>) {}
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.checkRecipesLoadedState()
@@ -28,18 +33,18 @@ export class RecipeGuard implements CanActivate {
 
   checkRecipe(id: string): Observable<boolean> {
     return this.store
-      .select(getRecipesEntities)
       .pipe(
-        map(entities => !!entities[id]),
+        select(selectAllRecipesIds),
+        map(ids => (ids as string[]).includes(id)),
         take(1)
       );
   }
 
   checkRecipesLoadedState(): Observable<boolean> {
     return this.store
-      .select(getRecipesLoaded)
       .pipe(
-        tap(loaded => !loaded ? this.store.dispatch(new LoadRecipes()) : null),
+        select(selectRecipesLoaded),
+        tap(loaded => !loaded ? this.store.dispatch(loadRecipes()) : null),
         filter(loaded => loaded),
         take(1)
       );

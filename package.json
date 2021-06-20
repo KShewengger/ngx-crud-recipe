@@ -8,7 +8,7 @@
     "test": "jest --detectOpenHandles",
     "test:coverage": "jest --coverage",
     "restore:data": "cp data/recipes-backup.json data/recipes.json",
-    "server": "json-server --watch data/recipes.json --id uuid --port 3001",
+    "server": "json-server --watch data/recipes.json --port 3001",
     "start": "ng serve",
     "dev:ssr": "ng run ngx-simple-crud-recipe:serve-ssr",
     "serve:ssr": "node dist/ngx-simple-crud-recipe/server/main.js",

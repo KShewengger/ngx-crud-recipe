@@ -1,12 +1,12 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Observable, Subject } from 'rxjs';
 import { filter, take, takeUntil, tap } from 'rxjs/operators';
 
-import { getAllRecipes, ProductsState, Recipe } from '@recipes/shared';
+import { selectAllRecipes, Recipe, RecipeState } from '@recipes/shared';
 
 import { SeoService } from '@core/services';
 import { Tag } from '@core/models';
@@ -20,7 +20,7 @@ export class RecipesResolver implements OnDestroy, Resolve<Recipe[]> {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    private store: Store<ProductsState>,
+    private store: Store<RecipeState>,
     private seoService: SeoService
   ) {}
 
@@ -31,8 +31,8 @@ export class RecipesResolver implements OnDestroy, Resolve<Recipe[]> {
 
   resolve(route: ActivatedRouteSnapshot): Observable<Recipe[]> {
     return this.store
-      .select(getAllRecipes)
       .pipe(
+        select(selectAllRecipes),
         filter(recipes => !!recipes),
         take(1),
         tap(() => this.setSeoTags()),

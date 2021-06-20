@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Observable, Subject } from 'rxjs';
-import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map, pluck, tap } from 'rxjs/operators';
+import { takeUntil, debounceTime, distinctUntilChanged, switchMap, map, pluck } from 'rxjs/operators';
 
 import { Recipe } from '@recipes/shared';
 
@@ -15,12 +15,15 @@ import { Recipe } from '@recipes/shared';
 export class RecipesComponent implements OnInit, OnDestroy {
 
   recipes$: Observable<Recipe[]>;
+
   search$: Subject<string> = new Subject<string>();
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   recipes: Recipe[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.initializeRecipes();

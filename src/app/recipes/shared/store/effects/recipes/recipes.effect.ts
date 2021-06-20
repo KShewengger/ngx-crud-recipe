@@ -5,8 +5,8 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 
-import { RecipeService } from '@recipes/shared';
-import * as fromActions from '@recipes/shared/store/actions';
+import { Recipe, RecipeService } from '@recipes/shared';
+import * as RecipeActions from '@recipes/shared/store/actions';
 
 import { go } from '@core/store';
 
@@ -20,32 +20,32 @@ export class RecipesEffects {
   ) { }
 
   loadPizzas$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LOAD_RECIPES),
+    ofType(RecipeActions.loadRecipes),
     switchMap(() => this.recipeService
       .getAllRecipes()
       .pipe(
-        map(recipes => new fromActions.LoadRecipesSuccess(recipes)),
-        catchError(error => of(new fromActions.LoadRecipesFail(error)))
+        map(recipes => RecipeActions.loadRecipesSuccess({ recipes })),
+        catchError(error => of(RecipeActions.loadRecipesFail({ error })))
       )
     )
   ));
 
   deleteRecipe$ = createEffect(() => this.actions$
     .pipe(
-      ofType(fromActions.DELETE_RECIPE),
-      map((action: fromActions.DeleteRecipe) => action.payload),
+      ofType(RecipeActions.deleteRecipe),
+      map(payload => payload.recipe),
       switchMap(recipe => this.recipeService
-        .deleteRecipe(recipe.uuid)
+        .deleteRecipe(recipe.id)
         .pipe(
-          map(() => new fromActions.DeleteRecipeSuccess(recipe)),
-          catchError(error => of(new fromActions.DeleteRecipeFail(error)))
+          map(() => RecipeActions.deleteRecipeSuccess({ recipe })),
+          catchError(error => of(RecipeActions.deleteRecipeFail({ error })))
         )
       )
     ));
 
   handleRecipeSuccess$ = createEffect(() => this.actions$
     .pipe(
-      ofType(fromActions.DELETE_RECIPE_SUCCESS),
+      ofType(RecipeActions.deleteRecipeSuccess),
       map(() => go({ path: ['/'] }))
     ));
 

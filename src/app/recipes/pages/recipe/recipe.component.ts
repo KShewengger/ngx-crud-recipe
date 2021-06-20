@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, pluck } from 'rxjs/operators';
 
-import { ProductsState, DeleteRecipe } from '@recipes/shared/store';
-import { Recipe } from '@recipes/shared/models';
+import { deleteRecipe } from '@recipes/shared/store';
+import { Recipe, RecipeState } from '@recipes/shared/models';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private store: Store<ProductsState>
+    private store: Store<RecipeState>
   ) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class RecipeComponent implements OnInit, OnDestroy {
   }
 
   onRecipeModalResponse(recipe: Recipe): void {
-    this.store.dispatch(new DeleteRecipe(recipe));
+    this.store.dispatch(deleteRecipe({ recipe }));
   }
 
 }

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { Observable, of } from 'rxjs';
 import { tap, filter, take, switchMap, catchError } from 'rxjs/operators';
 
-import { getRecipesLoaded, LoadRecipes, ProductsState } from '@recipes/shared';
+import { selectRecipesLoaded, loadRecipes, RecipeState } from '@recipes/shared';
 
 
 @Injectable({
@@ -14,7 +14,7 @@ import { getRecipesLoaded, LoadRecipes, ProductsState } from '@recipes/shared';
 })
 export class RecipesGuard implements CanActivate {
 
-  constructor(private store: Store<ProductsState>) {}
+  constructor(private store: Store<RecipeState>) {}
 
   canActivate(): Observable<boolean> {
     return this.checkRecipesLoadedState()
@@ -26,9 +26,9 @@ export class RecipesGuard implements CanActivate {
 
   checkRecipesLoadedState(): Observable<boolean> {
     return this.store
-      .select(getRecipesLoaded)
       .pipe(
-        tap(loaded => !loaded ? this.store.dispatch(new LoadRecipes()) : null),
+        select(selectRecipesLoaded),
+        tap(loaded => !loaded ? this.store.dispatch(loadRecipes()) : null),
         filter(loaded => loaded),
         take(1)
       );
