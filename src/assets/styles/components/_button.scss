@@ -1,11 +1,22 @@
 .btn {
 
-  padding: 0.5rem;
-  width: 6rem;
-  letter-spacing: 0.1rem;
-  font-weight: 500;
+  &:not(&--icon) {
+    padding: 0.5rem;
+    width: 6rem;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
 
-  &--edit {
+  &--icon {
+    svg {
+      width: 1rem;
+      height: 1rem;
+      fill: white;
+    }
+  }
+
+  &-primary {
     color: $color-brown;
   }
 
@@ -13,9 +24,17 @@
     box-shadow: unset;
   }
 
+  &__check {
+    background-color: $color-primary-dark;
+  }
+
+  &__remove {
+    background-color: $color-brown;
+  }
+
   &:hover:not(&--unstyled) {
     transform: translateY(-0.0625rem);
-    box-shadow: 0 0.0625rem 0.1875rem $color-gray;
+    filter: drop-shadow(0 0.2rem 0.1875rem rgba(50, 50, 0, 0.5));
   }
 
   &:active {

@@ -1,1 +1,97 @@
-<p>recipe-form works!</p>
+<div class="wrapper container">
+
+  <!-- WRAPPER CONTAINER -->
+  <div class="wrapper__container d-flex mb-5">
+
+    <!-- WRAPPER BODY -->
+    <div class="wrapper__body p-5">
+
+      <!-- HEADER -->
+      <div class="wrapper__header mb-md-5 mb-4">
+        <div class="wrapper__back mb-4 d-flex align-items-center"
+             [routerLink]="['../']">
+          <svg class="wrapper__back--icon icon-chevron-thin-left me-1">
+            <use xlink:href="assets/images/icons/symbol-defs.svg#icon-chevron-thin-left"></use>
+          </svg>
+
+          <p>
+            <small class="wrapper__back--text mt-2 text-uppercase">Back</small>
+          </p>
+        </div>
+
+        <p class="text-secondary text-brown display-4">Add Recipe</p>
+        <p class="text-muted">Exciting new recipe to share around the globe</p>
+      </div>
+
+      <!-- RECIPE FORM -->
+      <form novalidate>
+
+        <!-- RECIPE INFO -->
+        <div>
+          <div class="mb-3">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Title">
+          </div>
+
+          <div class="mb-3">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Description">
+          </div>
+        </div>
+
+        <!-- RECIPE TIMEFRAME -->
+        <hr/>
+        <div>
+          <h5 class="mb-3 fw-normal text-brown">Timeframe</h5>
+
+          <div class="d-lg-flex d-block">
+            <div class="mb-3">
+              <input type="text"
+                     class="form-control"
+                     placeholder="Servings">
+            </div>
+
+            <div class="mx-lg-3 mx-0 mb-3">
+              <input type="text"
+                     class="form-control"
+                     placeholder="Prep Time (min)">
+            </div>
+
+            <div class="mb-3">
+              <input type="text"
+                     class="form-control"
+                     placeholder="Cook Time (min)">
+            </div>
+          </div>
+        </div>
+
+        <!-- RECIPE INGREDIENTS -->
+        <hr/>
+        <div class="mb-3">
+          <h5 class="mb-3 fw-normal text-brown">Ingredients</h5>
+
+          <ng-container #ingredients></ng-container>
+        </div>
+
+        <!-- RECIPE DIRECTIONS -->
+        <hr/>
+        <div class="mb-3">
+          <h5 class="mb-3 fw-normal text-brown">Directions</h5>
+
+          <ng-container #directions></ng-container>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- RECIPE BUTTONS -->
+  <div class="text-center mt-5">
+    <a class="btn btn-primary mx-2">Cancel</a>
+    <a class="btn btn-secondary">Save</a>
+  </div>
+
+</div>

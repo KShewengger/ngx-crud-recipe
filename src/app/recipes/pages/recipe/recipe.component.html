@@ -1,33 +1,33 @@
-<div class="recipe container"
+<div class="wrapper recipe container"
      *ngIf="(recipe$ | async) as recipe">
 
-  <!-- RECIPE COVER -->
-  <div class="recipe__wrapper d-flex mb-3">
+  <!-- WRAPPER CONTAINER -->
+  <div class="wrapper__container d-flex mb-3">
 
-    <!-- RECIPE BODY -->
-    <div class="recipe__body">
+    <!-- WRAPPER BODY -->
+    <div class="wrapper__body">
 
       <!-- HEADER -->
-      <div class="recipe__header mb-md-5 mb-4">
-        <div class="recipe__back mb-4 d-flex align-items-center"
+      <div class="wrapper__header mb-md-5 mb-4">
+        <div class="wrapper__back mb-4 d-flex align-items-center"
            [routerLink]="['../']">
-          <svg class="recipe__back--icon icon icon-chevron-thin-left me-1">
+          <svg class="wrapper__back--icon icon-chevron-thin-left me-1">
             <use xlink:href="assets/images/icons/symbol-defs.svg#icon-chevron-thin-left"></use>
           </svg>
 
           <p>
-            <small class="recipe__back--text mt-2 text-uppercase">Back</small>
+            <small class="wrapper__back--text mt-2 text-uppercase">Back</small>
           </p>
         </div>
 
-        <p class="recipe__title display-3 mb-2">{{ recipe.title }}</p>
+        <p class="recipe__title text-brown display-3 mb-2">{{ recipe.title }}</p>
         <p class="recipe__description text-muted">{{ recipe.description }}</p>
       </div>
 
       <!-- RECIPE INGREDIENTS -->
       <div class="recipe__ingredients mb-4">
-        <h3 class="recipe__subject mb-3">
-          <svg class="recipe__icon icon icon-local_grocery_store me-2">
+        <h3 class="recipe__subject text-dark-brown mb-3">
+          <svg class="recipe__icon wrapper__icon icon-local_grocery_store me-2">
             <use xlink:href="assets/images/icons/symbol-defs.svg#icon-local_grocery_store"></use>
           </svg>
 
@@ -47,7 +47,7 @@
       <!-- RECIPE DIRECTIONS -->
       <div class="recipe__directions">
         <h3 class="recipe__subject mb-3">
-          <svg class="recipe__icon icon icon-bowl me-2">
+          <svg class="recipe__icon wrapper__icon icon-bowl me-2">
             <use xlink:href="assets/images/icons/symbol-defs.svg#icon-bowl"></use>
           </svg>
 
@@ -80,21 +80,21 @@
 
         <div class="bookmark__timeframe">
           <p>
-            <svg class="bookmark__icon icon icon-copyright">
+            <svg class="bookmark__icon wrapper__icon icon-copyright">
               <use xlink:href="assets/images/icons/symbol-defs.svg#icon-face"></use>
             </svg>
             <span class="ms-2">{{ recipe.servings }} servings</span>
           </p>
 
           <p class="my-1">
-            <svg class="bookmark__icon icon icon-copyright">
+            <svg class="bookmark__icon wrapper__icon icon-copyright">
               <use xlink:href="assets/images/icons/symbol-defs.svg#icon-timer"></use>
             </svg>
             <span class="ms-2">{{ recipe.prepTime }} minutes</span>
           </p>
 
           <p>
-            <svg class="bookmark__icon icon icon-copyright">
+            <svg class="bookmark__icon wrapper__icon icon-copyright">
               <use xlink:href="assets/images/icons/symbol-defs.svg#icon-bowl"></use>
             </svg>
             <span class="ms-2">{{ recipe.cookTime }} minutes</span>
@@ -106,8 +106,10 @@
   </div>
 
   <!-- RECIPE BUTTONS -->
-  <div class="text-center mt-5">
-    <a class="btn btn-primary btn--edit mx-2">Edit</a>
+  <div class="text-center mt-3">
+    <a class="btn btn-primary mx-2"
+       [routerLink]="'form'">Edit</a>
+
     <a class="btn btn-secondary btn--delete text-white"
        recipeModal="delete"
        [recipeModalData]="recipe"

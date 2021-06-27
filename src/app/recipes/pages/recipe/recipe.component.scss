@@ -1,26 +1,4 @@
 .recipe {
-  background-color: white;
-  border-radius: 1rem;
-  padding-bottom: 4rem;
-  position: relative;
-
-  &__back {
-    cursor: pointer;
-    color: var(--color-primary-dark);
-    font-weight: 500;
-    font-size: 1rem;
-
-    &--icon {
-      width: 1rem;
-      height: 1rem;
-      fill: var(--color-primary-dark);
-    }
-  }
-
-  &__body {
-    padding: 3rem 0 3rem 3rem;
-    flex: 1;
-  }
 
   &__title {
     color: var(--color-brown);
@@ -33,26 +11,6 @@
 
   &__steps {
     list-style-type: decimal;
-  }
-
-  &__icon {
-    fill: var(--color-brown);
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
-  @media only screen and (max-width: 61.9375em) {
-    overflow: hidden;
-    padding: 0 0 3rem 0;
-
-    &__wrapper {
-      flex-direction: column;
-    }
-
-    &__body {
-      order: 1;
-      padding: 1rem 2rem;
-    }
   }
 
 }

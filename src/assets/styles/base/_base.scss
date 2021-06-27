@@ -73,12 +73,6 @@ ul {
   line-height: 2;
 }
 
-.wrapper {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 main {
   flex: 1;
   padding: 4rem 0;
@@ -87,4 +81,8 @@ main {
 ::selection {
   background-color: $color-secondary;
   color: white;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 0.9rem;
 }
