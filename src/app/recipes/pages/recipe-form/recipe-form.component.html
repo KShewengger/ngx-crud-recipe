@@ -19,8 +19,16 @@
           </p>
         </div>
 
-        <p class="text-secondary text-brown display-4">Add Recipe</p>
-        <p class="text-muted">Exciting new recipe to share around the globe</p>
+        <ng-template [ngIf]="isUpdateForm$ | async"
+                     [ngIfElse]="addRecipe">
+          <p class="text-secondary text-brown display-4">Edit Recipe</p>
+          <p class="text-muted">Update and Share this recipe around the globe</p>
+        </ng-template>
+
+        <ng-template #addRecipe>
+          <p class="text-secondary text-brown display-4">Add Recipe</p>
+          <p class="text-muted">Exciting new recipe to share around the globe</p>
+        </ng-template>
       </div>
 
       <!-- RECIPE FORM -->

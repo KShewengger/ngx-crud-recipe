@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, AfterViewInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { RecipeDirectionFormComponent, RecipeIngredientFormComponent } from '@recipes/components';
+import { Observable } from 'rxjs';
+import { pluck } from 'rxjs/operators';
 
 
 @Component({
@@ -17,7 +20,10 @@ export class RecipeFormComponent implements AfterViewInit {
   @ViewChild('directions', { read: ViewContainerRef })
   directionsContainerRef: ViewContainerRef;
 
+  isUpdateForm$: Observable<boolean> = this.route.params.pipe(pluck('id'));
+
   constructor(
+    private route: ActivatedRoute,
     private resolver: ComponentFactoryResolver
   ) { }
 
